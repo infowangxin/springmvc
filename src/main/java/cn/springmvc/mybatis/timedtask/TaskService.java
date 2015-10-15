@@ -16,7 +16,7 @@ public class TaskService {
 
     private static final Logger log = LoggerFactory.getLogger(TaskService.class);
 
-    @Scheduled(cron = "0/1 * * * * ? ")
+    @Scheduled(cron = "0 0/1 * * * ? ")
     public void task() {
         String dateString = DateUtil.dateToString(null, DateUtil.fm_yyyy_MM_dd_HHmmssSSS);
         log.trace("## tract {}", dateString);
