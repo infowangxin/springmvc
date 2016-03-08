@@ -8,13 +8,39 @@
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<!-- 数据源配置, pring Simple连接池 -->
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
-		<property name="driverClass" value="#{p_datasource['connection.jdbc.driver']}" />
-		<property name="url" value="#{p_datasource['connection.jdbc.url']}" />
-		<property name="username" value="#{p_datasource['connection.jdbc.username']}" />
-		<property name="password" value="#{p_datasource['connection.jdbc.password']}" />
+	<!-- 主数据源，使用alibaba druid连接池 -->
+	<bean id="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+		<property name="name" value="#{p_db['master.name']}" />
+		<property name="url" value="#{p_db['master.url']}" />
+		<property name="username" value="#{p_db['master.username']}" />
+		<property name="password" value="#{p_db['master.password']}" />
+		<property name="driverClassName" value="#{p_db['master.driverClassName']}" />
+		<property name="initialSize" value="#{p_db['master.initialSize']}" />
+		<property name="maxActive" value="#{p_db['master.maxActive']}" />
+		<property name="minIdle" value="#{p_db['master.minIdle']}" />
+		<property name="maxWait" value="#{p_db['master.maxWait']}" />
+		<property name="useUnfairLock" value="#{p_db['master.useUnfairLock']}" />
+		<property name="validationQuery" value="#{p_db['master.validationQuery']}" />
+		<property name="testOnBorrow" value="#{p_db['master.testOnBorrow']}" />
+		<property name="testOnReturn" value="#{p_db['master.testOnReturn']}" />
+		<property name="testWhileIdle" value="#{p_db['master.testWhileIdle']}" />
+		<property name="timeBetweenEvictionRunsMillis" value="#{p_db['master.timeBetweenEvictionRunsMillis']}" />
+		<property name="minEvictableIdleTimeMillis" value="#{p_db['master.minEvictableIdleTimeMillis']}" />
+		<property name="filters" value="#{p_db['master.filters']}" />
 	</bean>
+
+	<!-- 总数据源 -->
+	<bean id="dataSource" class="cn.springmvc.mybatis.common.datasource.DynamicDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry key="master" value-ref="masterDataSource" />
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="masterDataSource" />
+	</bean>
+
+	<!-- 数据源Aspect -->
+	<bean id="dataSourceAspect" class="cn.springmvc.mybatis.common.datasource.DataSourceAspect" />
 
 	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
