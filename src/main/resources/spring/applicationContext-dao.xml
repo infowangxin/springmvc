@@ -10,23 +10,23 @@
 
 	<!-- 主数据源，使用alibaba druid连接池 -->
 	<bean id="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
-		<property name="name" value="#{p_db['master.name']}" />
-		<property name="url" value="#{p_db['master.url']}" />
-		<property name="username" value="#{p_db['master.username']}" />
-		<property name="password" value="#{p_db['master.password']}" />
-		<property name="driverClassName" value="#{p_db['master.driverClassName']}" />
-		<property name="initialSize" value="#{p_db['master.initialSize']}" />
-		<property name="maxActive" value="#{p_db['master.maxActive']}" />
-		<property name="minIdle" value="#{p_db['master.minIdle']}" />
-		<property name="maxWait" value="#{p_db['master.maxWait']}" />
-		<property name="useUnfairLock" value="#{p_db['master.useUnfairLock']}" />
-		<property name="validationQuery" value="#{p_db['master.validationQuery']}" />
-		<property name="testOnBorrow" value="#{p_db['master.testOnBorrow']}" />
-		<property name="testOnReturn" value="#{p_db['master.testOnReturn']}" />
-		<property name="testWhileIdle" value="#{p_db['master.testWhileIdle']}" />
-		<property name="timeBetweenEvictionRunsMillis" value="#{p_db['master.timeBetweenEvictionRunsMillis']}" />
-		<property name="minEvictableIdleTimeMillis" value="#{p_db['master.minEvictableIdleTimeMillis']}" />
-		<property name="filters" value="#{p_db['master.filters']}" />
+		<property name="name" value="#{p_datasource['master.name']}" />
+		<property name="url" value="#{p_datasource['master.url']}" />
+		<property name="username" value="#{p_datasource['master.username']}" />
+		<property name="password" value="#{p_datasource['master.password']}" />
+		<property name="driverClassName" value="#{p_datasource['master.driverClassName']}" />
+		<property name="initialSize" value="#{p_datasource['master.initialSize']}" />
+		<property name="maxActive" value="#{p_datasource['master.maxActive']}" />
+		<property name="minIdle" value="#{p_datasource['master.minIdle']}" />
+		<property name="maxWait" value="#{p_datasource['master.maxWait']}" />
+		<property name="useUnfairLock" value="#{p_datasource['master.useUnfairLock']}" />
+		<property name="validationQuery" value="#{p_datasource['master.validationQuery']}" />
+		<property name="testOnBorrow" value="#{p_datasource['master.testOnBorrow']}" />
+		<property name="testOnReturn" value="#{p_datasource['master.testOnReturn']}" />
+		<property name="testWhileIdle" value="#{p_datasource['master.testWhileIdle']}" />
+		<property name="timeBetweenEvictionRunsMillis" value="#{p_datasource['master.timeBetweenEvictionRunsMillis']}" />
+		<property name="minEvictableIdleTimeMillis" value="#{p_datasource['master.minEvictableIdleTimeMillis']}" />
+		<property name="filters" value="#{p_datasource['master.filters']}" />
 	</bean>
 
 	<!-- 总数据源 -->
@@ -44,8 +44,8 @@
 
 	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="typeAliasesPackage" value="cn.springmvc.mybatis.entity" />
-		<property name="mapperLocations" value="classpath:mybatis/mapper/*.xml" />
+		<!-- <property name="typeAliasesPackage" value="cn.springmvc.mybatis.entity" /> -->
+		<property name="mapperLocations" value="classpath:mybatis/mapper/**/**.xml" />
 		<!-- <property name="configLocation" value="classpath:mybatis/mybatis-config.xml" /> -->
 	</bean>
 

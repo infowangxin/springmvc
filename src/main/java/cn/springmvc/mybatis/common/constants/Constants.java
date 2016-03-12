@@ -59,4 +59,6 @@ public class Constants {
      */
     public static final String QUEUE_FOO_BAR = "foo.bar";
 
+    public static int defaultPageSize = 10;
+
 }
