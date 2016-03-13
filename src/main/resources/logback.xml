@@ -39,7 +39,8 @@
 		</encoder>
 	</appender>
 
-	<logger name="cn.springmvc" level="TRACE" />
+	<logger name="cn.springmvc" level="DEBUG" />
+	<logger name="org.activiti" level="DEBUG" />
 
 	<logger name="net.spy.memcached" level="DEBUG" />
 

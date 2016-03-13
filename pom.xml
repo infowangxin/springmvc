@@ -54,6 +54,9 @@
 
 		<!-- sitemesh -->
 		<sitemesh.version>3.0.0</sitemesh.version>
+		
+		<!-- activiti -->
+		<activiti-version>5.18.0</activiti-version>
 
 		<!-- servlet & jstl -->
 		<servlet-api.version>2.5</servlet-api.version>
@@ -172,7 +175,7 @@
 			</exclusions>
 		</dependency>
 
-		<!-- jdbc -->
+		<!-- druid -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
@@ -325,6 +328,12 @@
 
 		<!-- jdbc -->
 		<dependency>
+			<groupId>oracle</groupId>
+			<artifactId>ojdbc</artifactId>
+			<version>6</version>
+		</dependency>
+		
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql-connector-java.version}</version>
@@ -341,6 +350,31 @@
 			<groupId>org.sitemesh</groupId>
 			<artifactId>sitemesh</artifactId>
 			<version>${sitemesh.version}</version>
+		</dependency>
+		
+		<!-- activiti -->
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-engine</artifactId>
+			<version>${activiti-version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-spring</artifactId>
+			<version>${activiti-version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>2.4.3</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.3.168</version>
 		</dependency>
 
 		<!-- servlet & jstl -->
@@ -384,7 +418,7 @@
 			<version>${spring.version}</version>
 			<scope>test</scope>
 		</dependency>
-
+		
 	</dependencies>
 
 	<repositories>
