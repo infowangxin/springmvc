@@ -12,7 +12,7 @@
 		</encoder>
 	</appender>
 
-	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	<appender name="logs" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>${logBase}/logs.%d{yyyy-MM-dd}.log</FileNamePattern>
 			<MaxHistory>1</MaxHistory>
@@ -23,7 +23,7 @@
 		</encoder>
 	</appender>
 
-	<appender name="file—error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	<appender name="errors" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<filter class="ch.qos.logback.classic.filter.LevelFilter">
 			<level>ERROR</level>
 			<onMatch>ACCEPT</onMatch>
@@ -52,8 +52,8 @@
 	<logger name="org.apache" level="INFO" />
 	<logger name="org.quartz" level="INFO" />
 
-	<logger name="com.google.code.yanf4j" level="WARN" />
-	<logger name="net.rubyeye.xmemcached" level="WARN" />
+	<logger name="com.google.code.yanf4j" level="INFO" />
+	<logger name="net.rubyeye.xmemcached" level="INFO" />
 
 	<!-- 日志级别：TRACE < DEBUG < INFO < WARN < ERROR -->
 	<root level="INFO">
@@ -61,10 +61,10 @@
 		<appender-ref ref="stdout" />
 
 		<!-- 当前级别可输出的日志全部写入一个文件 -->
-		<appender-ref ref="file" />
+		<appender-ref ref="logs" />
 
 		<!-- error级别日志单独写入一个文件 -->
-		<appender-ref ref="file—error" />
+		<appender-ref ref="errors" />
 	</root>
 
 </configuration>

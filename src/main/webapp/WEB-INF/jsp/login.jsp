@@ -59,14 +59,12 @@ body {
 	<div class="container">
 		<form:form action="${ctx }/login.htm" cssClass="form-signin" modelAttribute="userCommand" method="POST">
 			<h3 class="form-signin-heading">请登录</h3>
-			<input type="text" class="form-control input-block-level" id="username" name="username" placeholder="用户" value="admin">
-			<input type="password" class="form-control input-block-level" id="password" name="password" placeholder="密码" value="123456">
+			<input type="text" class="form-control input-block-level" id="username" name="username" placeholder="用户" value="guest">
+			<input type="password" class="form-control input-block-level" id="password" name="password" placeholder="密码" value="guest">
 			<form:errors cssClass="login-error"></form:errors>
 			<button class="btn btn-large btn-primary" type="submit">登录</button>
 			</br>
 			</br>
-			<p>管理员：admin/123456</p>
-			<p>普通用户：wangxin/123456</p>
 		</form:form>
 	</div>
 

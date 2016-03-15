@@ -79,22 +79,22 @@ public class InitServiceTest {
     private void addUsers() {
         try {
             Role systemRole = roleService.findRoleByCode(Constants.SYSTEM_ROLE_CODE);// 管理员
-            Role commonRole = roleService.findRoleByCode(Constants.COMMON_ROLE_CODE);// 普通用户
-            String password = "123456";
+            // Role commonRole = roleService.findRoleByCode(Constants.COMMON_ROLE_CODE);// 普通用户
+            String password = "guest";
 
             User admin = new User();
-            admin.setName("admin");
+            admin.setName("guest");
             admin.setEmail("infowangxin@163.com");
             admin.setTrueName("管理员");
             admin.setPassword(password);
             userService.addUser(admin, systemRole);
 
-            User wangxin = new User();
-            wangxin.setName("wangxin");
-            wangxin.setTrueName("王鑫");
-            wangxin.setEmail("infowangxin@139.com");
-            wangxin.setPassword(password);
-            userService.addUser(wangxin, commonRole);
+            // User wangxin = new User();
+            // wangxin.setName("wangxin");
+            // wangxin.setTrueName("王鑫");
+            // wangxin.setEmail("infowangxin@139.com");
+            // wangxin.setPassword(password);
+            // userService.addUser(wangxin, commonRole);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -106,29 +106,29 @@ public class InitServiceTest {
         try {
             // 系统管理员
             roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.user);
-            roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.useradd);
-            roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.upload);
-            roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.ajaxupload);
-            roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.springupload);
-            roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.download);
-            roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.zipupload);
-            roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.search);
-            roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.jquery_search);
+            // roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.useradd);
+            // roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.upload);
+            // roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.ajaxupload);
+            // roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.springupload);
+            // roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.download);
+            // roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.zipupload);
+            // roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.search);
+            // roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.jquery_search);
             roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.news);
             roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.newsadd);
             roleService.addRolePermission(Constants.SYSTEM_ROLE_CODE, MenuUtil.news_search);
 
             // 普通用户
-            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.upload);
-            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.ajaxupload);
-            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.springupload);
-            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.download);
-            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.zipupload);
-            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.search);
-            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.jquery_search);
-            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.news);
-            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.newsadd);
-            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.news_search);
+            // roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.upload);
+            // roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.ajaxupload);
+            // roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.springupload);
+            // roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.download);
+            // roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.zipupload);
+            // roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.search);
+            // roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.jquery_search);
+            // roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.news);
+            // roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.newsadd);
+            // roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.news_search);
         } catch (Exception e) {
             e.printStackTrace();
         }
