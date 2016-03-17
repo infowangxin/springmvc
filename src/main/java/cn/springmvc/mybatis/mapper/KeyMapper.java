@@ -2,7 +2,6 @@ package cn.springmvc.mybatis.mapper;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
 
 import cn.springmvc.mybatis.common.base.model.Key;
 
