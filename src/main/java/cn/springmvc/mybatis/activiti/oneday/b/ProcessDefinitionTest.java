@@ -1,4 +1,4 @@
-package cn.springmvc.mybatis.activiti.oneday;
+package cn.springmvc.mybatis.activiti.oneday.b;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,6 +21,8 @@ import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import cn.springmvc.mybatis.activiti.oneday.a.HelloWorld;
 
 public class ProcessDefinitionTest {
 
@@ -201,7 +203,7 @@ public class ProcessDefinitionTest {
     public void deleteProcessDefinitionByKey() {
 
         // 流程定义的key
-        String processDefinitionKey = "helloword";
+        String processDefinitionKey = "task";
 
         RepositoryService repositoryService = processEngine.getRepositoryService();// 与流程定义部署对象相关的service
 

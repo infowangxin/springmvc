@@ -1,8 +1,6 @@
-package cn.springmvc.mybatis.activiti.oneday;
+package cn.springmvc.mybatis.activiti.oneday.a;
 
-import java.io.InputStream;
 import java.util.List;
-import java.util.zip.ZipInputStream;
 
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngines;
@@ -20,30 +18,26 @@ import org.slf4j.LoggerFactory;
 
 import cn.springmvc.mybatis.common.utils.DateUtil;
 
-public class ProcessInstanceTest {
+public class HelloWorld {
 
-    private static final Logger log = LoggerFactory.getLogger(ProcessInstanceTest.class);
+    private static final Logger log = LoggerFactory.getLogger(HelloWorld.class);
 
-    // 工作流引擎对象
     ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();// 这行代码默认加载activiti.cfg.xml
 
     // 部署流程定义
     @Test
-    public void deploymentProcessDefinition_zip() {
-        InputStream in = this.getClass().getClassLoader().getResourceAsStream("diagrams/helloworld.zip");
-        ZipInputStream zipInputStream = new ZipInputStream(in);
-
-        // 主要是ACT_RE打头的表
+    public void deploymentProcessDefinition() {
         RepositoryService repositoryService = processEngine.getRepositoryService();// 与流程定义部署对象相关的service
 
         DeploymentBuilder deploymentBuilder = repositoryService.createDeployment();// 创建一个部署对象
-        deploymentBuilder.name("流程定义");// 添加部署的名称
-        deploymentBuilder.addZipInputStream(zipInputStream);// 指定zip格式的文件完成部署
+        deploymentBuilder.addClasspathResource("diagrams/helloworld.bpmn");// 从classpath的资源中加载，一次一个文件
+        deploymentBuilder.name("helloworld入门程序");// 添加部署的名称
+        deploymentBuilder.addClasspathResource("diagrams/helloworld.png");// 从classpath的资源中加载，一次一个文件
 
         Deployment deployment = deploymentBuilder.deploy();// 部署完成
 
-        log.debug("#部署ID:{}", deployment.getId());// 7501
-        log.debug("#部署名称:{}", deployment.getName());// 流程定义
+        log.debug("部署ID:{}", deployment.getId());// 1
+        log.debug("部署名称:{}", deployment.getName());// helloworld入门程序
     }
 
     // 启动流程实例
@@ -61,7 +55,7 @@ public class ProcessInstanceTest {
         log.debug("流程实例ID：{}", pi.getId());// 2501
         log.debug("流程定义ID：{}", pi.getProcessDefinitionId());// helloword:1:4
     }
-    
+
     // 查询当前人的个人任务
     @Test
     public void findProcessTask() {
@@ -85,7 +79,7 @@ public class ProcessInstanceTest {
             log.debug("##########################################################");
         }
     }
-    
+
     /** 完成我的任务 */
     @Test
     public void completeMyPersonalTask() {

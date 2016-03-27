@@ -4,10 +4,10 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 	<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
-		<property name="jdbcDriver" value="oracle.jdbc.OracleDriver" />
-		<property name="jdbcUrl" value="jdbc:oracle:thin:@180.168.1.59:1521:xjh" />
-		<property name="jdbcUsername" value="chinapay" />
-		<property name="jdbcPassword" value="chinapay" />
+		<property name="jdbcDriver" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/longfor_crm?useUnicode=true&amp;characterEncoding=utf8" />
+		<property name="jdbcUsername" value="root" />
+		<property name="jdbcPassword" value="root" />
 		<property name="databaseSchemaUpdate" value="true" />
 	</bean>
 
