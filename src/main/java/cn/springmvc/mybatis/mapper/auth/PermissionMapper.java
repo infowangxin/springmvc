@@ -1,8 +1,9 @@
-package cn.springmvc.mybatis.mapper;
+package cn.springmvc.mybatis.mapper.auth;
 
 import java.util.List;
 
-import cn.springmvc.mybatis.entity.Permission;
+import cn.springmvc.mybatis.entity.auth.Permission;
+import cn.springmvc.mybatis.mapper.BaseMapper;
 
 /**
  * @author Vincent.wang

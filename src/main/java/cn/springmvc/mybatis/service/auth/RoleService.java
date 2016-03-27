@@ -1,8 +1,8 @@
-package cn.springmvc.mybatis.service;
+package cn.springmvc.mybatis.service.auth;
 
 import java.util.List;
 
-import cn.springmvc.mybatis.entity.Role;
+import cn.springmvc.mybatis.entity.auth.Role;
 
 /**
  * @author Vincent.wang

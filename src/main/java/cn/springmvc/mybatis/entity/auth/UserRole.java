@@ -1,5 +1,6 @@
-package cn.springmvc.mybatis.entity;
+package cn.springmvc.mybatis.entity.auth;
 
+import cn.springmvc.mybatis.entity.BaseEntity;
 
 /**
  * @author Vincent.wang

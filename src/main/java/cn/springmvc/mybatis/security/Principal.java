@@ -3,8 +3,8 @@ package cn.springmvc.mybatis.security;
 import java.io.Serializable;
 import java.util.List;
 
-import cn.springmvc.mybatis.entity.Role;
-import cn.springmvc.mybatis.entity.User;
+import cn.springmvc.mybatis.entity.auth.Role;
+import cn.springmvc.mybatis.entity.auth.User;
 
 /**
  * @author Vincent.wang

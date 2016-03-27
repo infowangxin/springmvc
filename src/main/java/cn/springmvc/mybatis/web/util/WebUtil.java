@@ -8,8 +8,8 @@ import org.slf4j.LoggerFactory;
 
 import cn.springmvc.mybatis.common.constants.Constants;
 import cn.springmvc.mybatis.common.exception.BusinessException;
-import cn.springmvc.mybatis.entity.Role;
-import cn.springmvc.mybatis.entity.User;
+import cn.springmvc.mybatis.entity.auth.Role;
+import cn.springmvc.mybatis.entity.auth.User;
 import cn.springmvc.mybatis.security.Principal;
 
 /**

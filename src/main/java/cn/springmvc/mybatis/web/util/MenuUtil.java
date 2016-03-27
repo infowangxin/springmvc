@@ -8,7 +8,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 
 import cn.springmvc.mybatis.common.constants.Constants;
-import cn.springmvc.mybatis.entity.Permission;
+import cn.springmvc.mybatis.entity.auth.Permission;
 import cn.springmvc.mybatis.web.vo.PermissionVo;
 
 /**

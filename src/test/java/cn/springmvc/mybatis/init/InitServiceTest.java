@@ -10,12 +10,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import cn.springmvc.mybatis.common.constants.Constants;
-import cn.springmvc.mybatis.entity.Permission;
-import cn.springmvc.mybatis.entity.Role;
-import cn.springmvc.mybatis.entity.User;
-import cn.springmvc.mybatis.service.PermissionService;
-import cn.springmvc.mybatis.service.RoleService;
-import cn.springmvc.mybatis.service.UserService;
+import cn.springmvc.mybatis.entity.auth.Permission;
+import cn.springmvc.mybatis.entity.auth.Role;
+import cn.springmvc.mybatis.entity.auth.User;
+import cn.springmvc.mybatis.service.auth.PermissionService;
+import cn.springmvc.mybatis.service.auth.RoleService;
+import cn.springmvc.mybatis.service.auth.UserService;
 import cn.springmvc.mybatis.web.util.MenuUtil;
 
 /**

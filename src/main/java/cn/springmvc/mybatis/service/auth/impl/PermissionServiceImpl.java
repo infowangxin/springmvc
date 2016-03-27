@@ -1,4 +1,4 @@
-package cn.springmvc.mybatis.service.impl;
+package cn.springmvc.mybatis.service.auth.impl;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 
 import cn.springmvc.mybatis.common.exception.BusinessException;
 import cn.springmvc.mybatis.common.utils.UUIDUtil;
-import cn.springmvc.mybatis.entity.Permission;
-import cn.springmvc.mybatis.mapper.PermissionMapper;
-import cn.springmvc.mybatis.service.PermissionService;
+import cn.springmvc.mybatis.entity.auth.Permission;
+import cn.springmvc.mybatis.mapper.auth.PermissionMapper;
+import cn.springmvc.mybatis.service.auth.PermissionService;
 
 /**
  * @author Vincent.wang

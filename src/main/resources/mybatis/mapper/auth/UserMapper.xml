@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="cn.springmvc.mybatis.mapper.UserMapper">
+<mapper namespace="cn.springmvc.mybatis.mapper.auth.UserMapper">
 
-	<resultMap id="userMap" type="cn.springmvc.mybatis.entity.User">
+	<resultMap id="userMap" type="cn.springmvc.mybatis.entity.auth.User">
 		<result column="ID" property="id" />
 		<result column="EMAIL" property="email" />
 		<result column="NAME" property="name" />
@@ -17,7 +17,7 @@
 		<result column="MODIFY_TIME" property="modifyTime" />
 	</resultMap>
 	
-	<insert id="insert" parameterType="cn.springmvc.mybatis.entity.User">
+	<insert id="insert" parameterType="cn.springmvc.mybatis.entity.auth.User">
 		INSERT INTO T_SYS_USER
 		(ID , CREATE_TIME , EMAIL , LAST_LOGIN_TIME ,  MODIFY_TIME , `NAME` , ORGANIZE_ID , `PASSWORD` , SALT , `STATUS` , TRUE_NAME)
 		values(#{id} , #{createTime} , #{email} , #{lastLoginTime} , #{modifyTime} , #{name} , #{organizeId} , #{password} , #{salt} , #{status} , #{trueName})
@@ -86,7 +86,7 @@
 		<include refid="from_xxx" />
 	</select>
 
-	<update id="update" parameterType="cn.springmvc.mybatis.entity.User">
+	<update id="update" parameterType="cn.springmvc.mybatis.entity.auth.User">
 		UPDATE T_SYS_USER
 		<set>
 			<if test="email != null">

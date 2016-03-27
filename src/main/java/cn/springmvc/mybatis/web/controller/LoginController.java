@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import cn.springmvc.mybatis.entity.User;
-import cn.springmvc.mybatis.service.UserService;
+import cn.springmvc.mybatis.entity.auth.User;
+import cn.springmvc.mybatis.service.auth.UserService;
 import cn.springmvc.mybatis.web.command.UserCommand;
 import cn.springmvc.mybatis.web.util.WebUtil;
 import cn.springmvc.mybatis.web.validator.UserValidator;

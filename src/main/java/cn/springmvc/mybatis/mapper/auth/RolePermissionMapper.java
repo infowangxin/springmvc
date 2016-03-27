@@ -1,6 +1,7 @@
-package cn.springmvc.mybatis.mapper;
+package cn.springmvc.mybatis.mapper.auth;
 
-import cn.springmvc.mybatis.entity.RolePermission;
+import cn.springmvc.mybatis.entity.auth.RolePermission;
+import cn.springmvc.mybatis.mapper.BaseMapper;
 
 public interface RolePermissionMapper extends BaseMapper<String, RolePermission> {
 

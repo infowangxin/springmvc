@@ -1,4 +1,4 @@
-package cn.springmvc.mybatis.service.impl;
+package cn.springmvc.mybatis.service.auth.impl;
 
 import java.util.Calendar;
 import java.util.List;
@@ -14,13 +14,13 @@ import cn.springmvc.mybatis.common.exception.BusinessException;
 import cn.springmvc.mybatis.common.utils.UUIDUtil;
 import cn.springmvc.mybatis.common.utils.salt.Digests;
 import cn.springmvc.mybatis.common.utils.salt.Encodes;
-import cn.springmvc.mybatis.entity.Role;
-import cn.springmvc.mybatis.entity.User;
-import cn.springmvc.mybatis.entity.UserRole;
-import cn.springmvc.mybatis.mapper.RoleMapper;
-import cn.springmvc.mybatis.mapper.UserMapper;
-import cn.springmvc.mybatis.mapper.UserRoleMapper;
-import cn.springmvc.mybatis.service.UserService;
+import cn.springmvc.mybatis.entity.auth.Role;
+import cn.springmvc.mybatis.entity.auth.User;
+import cn.springmvc.mybatis.entity.auth.UserRole;
+import cn.springmvc.mybatis.mapper.auth.RoleMapper;
+import cn.springmvc.mybatis.mapper.auth.UserMapper;
+import cn.springmvc.mybatis.mapper.auth.UserRoleMapper;
+import cn.springmvc.mybatis.service.auth.UserService;
 import cn.springmvc.mybatis.web.command.UserCommand;
 
 /**

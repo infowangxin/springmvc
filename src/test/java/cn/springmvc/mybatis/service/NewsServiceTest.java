@@ -11,8 +11,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import cn.springmvc.mybatis.entity.News;
-import cn.springmvc.mybatis.service.NewsService;
+import cn.springmvc.mybatis.entity.auth.News;
+import cn.springmvc.mybatis.service.auth.NewsService;
 
 /**
  * @author Vincent.wang

@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import cn.springmvc.mybatis.common.constants.Constants;
 import cn.springmvc.mybatis.common.exception.BusinessException;
-import cn.springmvc.mybatis.entity.User;
-import cn.springmvc.mybatis.service.UserService;
+import cn.springmvc.mybatis.entity.auth.User;
+import cn.springmvc.mybatis.service.auth.UserService;
 import cn.springmvc.mybatis.web.command.UserCommand;
 import cn.springmvc.mybatis.web.util.WebUtil;
 

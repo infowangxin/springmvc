@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="cn.springmvc.mybatis.mapper.PermissionMapper">
+<mapper namespace="cn.springmvc.mybatis.mapper.auth.PermissionMapper">
 
-	<resultMap id="permissionMap" type="cn.springmvc.mybatis.entity.Permission">
+	<resultMap id="permissionMap" type="cn.springmvc.mybatis.entity.auth.Permission">
 		<result property="id" column="ID" />
 		<result property="name" column="NAME" />
 		<result property="key" column="SKEY" />
@@ -13,7 +13,7 @@
 		<result property="parentKey" column="PARENT_KEY" />
 	</resultMap>
 
-	<insert id="insert" parameterType="cn.springmvc.mybatis.entity.Permission">
+	<insert id="insert" parameterType="cn.springmvc.mybatis.entity.auth.Permission">
 		INSERT INTO T_SYS_PERMISSION(ID , NAME , SKEY , HIDE , URL, SORT , PARENT_KEY)
 		VALUES(#{id} , #{name} , #{key} , #{hide} , #{url} , #{sort} , #{parentKey})
 	</insert>
@@ -81,7 +81,7 @@
 		<include refid="where_xxx" />
 	</select>
 
-	<update id="update" parameterType="cn.springmvc.mybatis.entity.Permission">
+	<update id="update" parameterType="cn.springmvc.mybatis.entity.auth.Permission">
 		UPDATE T_SYS_PERMISSION
 		<set>
 			<if test="hide != null">

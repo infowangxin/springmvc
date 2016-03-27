@@ -1,6 +1,8 @@
-package cn.springmvc.mybatis.entity;
+package cn.springmvc.mybatis.entity.auth;
 
 import java.util.Date;
+
+import cn.springmvc.mybatis.entity.BaseEntity;
 
 /**
  * @author Vincent.wang

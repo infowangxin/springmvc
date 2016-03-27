@@ -27,12 +27,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import cn.springmvc.mybatis.common.constants.Constants;
 import cn.springmvc.mybatis.common.exception.BusinessException;
 import cn.springmvc.mybatis.common.utils.salt.Encodes;
-import cn.springmvc.mybatis.entity.Permission;
-import cn.springmvc.mybatis.entity.Role;
-import cn.springmvc.mybatis.entity.User;
-import cn.springmvc.mybatis.service.PermissionService;
-import cn.springmvc.mybatis.service.RoleService;
-import cn.springmvc.mybatis.service.UserService;
+import cn.springmvc.mybatis.entity.auth.Permission;
+import cn.springmvc.mybatis.entity.auth.Role;
+import cn.springmvc.mybatis.entity.auth.User;
+import cn.springmvc.mybatis.service.auth.PermissionService;
+import cn.springmvc.mybatis.service.auth.RoleService;
+import cn.springmvc.mybatis.service.auth.UserService;
 import cn.springmvc.mybatis.web.util.MenuUtil;
 
 /**

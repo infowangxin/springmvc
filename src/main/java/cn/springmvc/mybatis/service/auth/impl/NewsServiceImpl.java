@@ -1,4 +1,4 @@
-package cn.springmvc.mybatis.service.impl;
+package cn.springmvc.mybatis.service.auth.impl;
 
 import java.util.Calendar;
 import java.util.List;
@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.springmvc.mybatis.common.utils.UUIDUtil;
-import cn.springmvc.mybatis.entity.News;
-import cn.springmvc.mybatis.entity.User;
-import cn.springmvc.mybatis.mapper.NewsMapper;
-import cn.springmvc.mybatis.service.NewsService;
+import cn.springmvc.mybatis.entity.auth.News;
+import cn.springmvc.mybatis.entity.auth.User;
+import cn.springmvc.mybatis.mapper.auth.NewsMapper;
+import cn.springmvc.mybatis.service.auth.NewsService;
 
 /**
  * @author Vincent.wang
