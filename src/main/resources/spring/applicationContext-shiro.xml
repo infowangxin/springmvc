@@ -30,7 +30,7 @@
 
 	<!-- 用户授权信息Cache, 采用EhCache -->
 	<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
-		<property name="cacheManagerConfigFile" value="classpath:ehcache/ehcache-shiro.xml" />
+		<property name="cacheManagerConfigFile" value="classpath:config/ehcache-shiro.xml" />
 	</bean>
 
 	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->

@@ -8,6 +8,8 @@
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
+	<util:properties id="p_datasource" location="classpath:/config/config-datasource.properties" />
+
 	<!-- 主数据源，使用alibaba druid连接池 -->
 	<bean id="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
 		<property name="name" value="#{p_datasource['master.name']}" />
@@ -84,14 +86,6 @@
 		<aop:pointcut id="allManagerMethod" expression="execution(* cn.springmvc.mybatis.service.impl.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="allManagerMethod" order="0" />
 	</aop:config>
-
-	<beans profile="development">
-		<util:properties id="p_datasource" location="classpath:/config/test-config-datasource.properties" />
-	</beans>
-
-	<beans profile="production">
-		<util:properties id="p_datasource" location="classpath:/config/config-datasource.properties" />
-	</beans>
 
 </beans>            
          

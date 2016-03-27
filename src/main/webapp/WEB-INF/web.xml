@@ -12,15 +12,9 @@
 			classpath*:spring/applicationContext.xml,
 			classpath*:spring/applicationContext-dao.xml,
 			classpath*:spring/applicationContext-shiro.xml,
-			classpath*:spring/applicationContext-schedule.xml
+			classpath*:spring/applicationContext-schedule.xml,
+			classpath*:spring/applicationContext-activiti.xml
 		</param-value>
-	</context-param>
-
-	<context-param>
-		<param-name>spring.profiles.default</param-name>
-		<!-- development:以开发环境启动，production：以生产环境启动 -->
-		<param-value>development</param-value>
-		<!-- <param-value>production</param-value> -->
 	</context-param>
 
 	<!-- Shiro Security filter -->

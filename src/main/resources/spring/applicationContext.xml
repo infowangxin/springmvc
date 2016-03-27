@@ -9,27 +9,13 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice" />
 	</context:component-scan>
 
-	<beans profile="development">
-		<bean id="propertyConfigurer" class="cn.springmvc.mybatis.common.utils.PropertyConfigurer">
-			<property name="ignoreResourceNotFound" value="true" />
-			<property name="locations">
-				<list>
-					<value>classpath:constants/test-constants.properties</value>
-				</list>
-			</property>
-		</bean>
-	</beans>
-
-	<beans profile="production">
-		<bean id="propertyConfigurer" class="cn.springmvc.mybatis.common.utils.PropertyConfigurer">
-			<property name="ignoreResourceNotFound" value="true" />
-			<property name="locations">
-				<list>
-					<value>classpath:constants/constants.properties</value>
-				</list>
-			</property>
-		</bean>
-	</beans>
-
+	<bean id="propertyConfigurer" class="cn.springmvc.mybatis.common.utils.PropertyConfigurer">
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:constants/constants.properties</value>
+			</list>
+		</property>
+	</bean>
 
 </beans>
