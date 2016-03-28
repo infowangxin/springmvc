@@ -26,13 +26,13 @@ public interface BaseMapper<S, T> {
     int insert(T t);
 
     /**
-     * @Title 根据Map删除
+     * @Title 根据PK删除
      * @author <font color="green"><b>Vincent.wang</b></font>
-     * @param map
+     * @param pk
      * @throws Exception
      * @return
      */
-    int delete(Map<String, Object> map);
+    int delete(S pk);
 
     /**
      * @Title 根据用户修改

@@ -106,11 +106,8 @@
 		WHERE ID = #{id}
 	</update>
 
-	<delete id="delete" parameterType="Map">
-		DELETE FROM T_SYS_PERMISSION WHERE ID IN
-		<foreach collection="ids" item="id" open="(" separator="," close=")">
-			#{id}
-		</foreach>
+	<delete id="delete" parameterType="string">
+		DELETE FROM T_SYS_PERMISSION WHERE ID=#{id}
 	</delete>
 
 </mapper>

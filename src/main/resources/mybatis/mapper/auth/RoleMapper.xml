@@ -9,7 +9,7 @@
 		<result property="code" column="CODE" />
 		<result property="remark" column="REMARK" />
 	</resultMap>
-	
+
 	<insert id="insert" parameterType="cn.springmvc.mybatis.entity.auth.Role">
 		 <![CDATA[ INSERT INTO T_SYS_ROLE(ID , NAME, CODE , REMARK) VALUES(#{id} , #{name} , #{code} , #{remark} ) ]]>
 	</insert>
@@ -19,7 +19,7 @@
 	    	select id , name , code , remark
 	    ]]>
 	</sql>
-	
+
 	<sql id="find_as_xxx">
 	    <![CDATA[
 	    	SELECT R.ID , R.NAME , R.CODE , R.REMARK
@@ -86,11 +86,8 @@
 		WHERE ID = #{id}
 	</update>
 
-	<delete id="delete" parameterType="Map">
-		DELETE FROM T_SYS_ROLE WHERE ID IN
-		<foreach collection="ids" item="id" open="(" separator="," close=")">
-			#{id}
-		</foreach>
+	<delete id="delete" parameterType="string">
+		DELETE FROM T_SYS_ROLE WHERE ID=#{id}
 	</delete>
 
 </mapper>

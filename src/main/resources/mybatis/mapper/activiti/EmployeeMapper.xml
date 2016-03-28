@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.springmvc.mybatis.mapper.activiti.EmployeeMapper">
+
+	<resultMap id="baseMap" type="cn.springmvc.mybatis.entity.activiti.Employee">
+		<result column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="password" property="password" />
+		<result column="email" property="email" />
+		<result column="role" property="role" />
+		<result column="manager_id" property="managerId" />
+	</resultMap>
+
+	<insert id="insert" parameterType="cn.springmvc.mybatis.entity.activiti.Employee">
+		INSERT INTO a_employee(id , name , password , email , role , manager_id)
+		VALUES(#{id} , #{name} , #{password} , #{email} , #{role} , #{manager_id})
+	</insert>
+
+	<sql id="find_xxx">
+	    <![CDATA[
+			SELECT id , name , password , email , role , manager_id
+	    ]]>
+	</sql>
+
+	<sql id="from_xxx">
+	    <![CDATA[
+	    	FROM a_employee
+	    ]]>
+	</sql>
+
+	<sql id="where_xxx">
+	    <![CDATA[
+	    	WHERE 1=1
+	    ]]>
+	</sql>
+
+	<select id="findById" parameterType="string" resultMap="baseMap">
+		<include refid="find_xxx" />
+		<include refid="from_xxx" />
+		<![CDATA[
+			WHERE ID=#{id}
+		]]>
+	</select>
+	
+	<select id="findEmployeeByName" parameterType="string" resultMap="baseMap">
+		<include refid="find_xxx" />
+		<include refid="from_xxx" />
+		<![CDATA[
+			WHERE name='%${name}%'
+		]]>
+	</select>
+
+	<update id="update" parameterType="cn.springmvc.mybatis.entity.activiti.Employee">
+		UPDATE a_employee
+		<set>
+			<if test="name != null">
+				name = #{name},
+			</if>
+			<if test="password != null">
+				password = #{password},
+			</if>
+			<if test="email != null">
+				email = #{email},
+			</if>
+			<if test="role != null">
+				role = #{role},
+			</if>
+			<if test="managerId != null">
+				manager_id = #{managerId},
+			</if>
+		</set>
+		WHERE ID = #{id}
+	</update>
+
+	<delete id="delete" parameterType="string">
+		DELETE FROM a_employee WHERE ID=#{id}
+	</delete>
+
+</mapper>

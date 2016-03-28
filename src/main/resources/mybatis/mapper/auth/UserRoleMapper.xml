@@ -65,12 +65,8 @@
 		WHERE id = #{id}
 	</update>
 
-	<delete id="delete" parameterType="Map">
-		DELETE FROM T_SYS_USER_ROLE
-		WHERE ID IN
-		<foreach collection="ids" item="id" open="(" separator="," close=")">
-			#{id}
-		</foreach>
+	<delete id="delete" parameterType="string">
+		DELETE FROM T_SYS_USER_ROLE WHERE ID IN #{id}
 	</delete>
 
 </mapper>
