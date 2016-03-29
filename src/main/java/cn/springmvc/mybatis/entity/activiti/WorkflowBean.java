@@ -1,9 +1,12 @@
 package cn.springmvc.mybatis.entity.activiti;
 
 import java.io.File;
+import java.io.Serializable;
 
-public class WorkflowBean {
+public class WorkflowBean implements Serializable {
 
+    private static final long serialVersionUID = 6640079924093210089L;
+    
     private File file; // 流程定义部署文件
     private String filename;// 流程定义名称
 

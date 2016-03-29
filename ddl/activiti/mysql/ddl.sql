@@ -1,7 +1,7 @@
 -- drop table a_employee;
 create table `a_employee`(
-	`id` varchar(32) primary key not null,
-	`name` varchar(100) ,
+  `id` varchar(32) primary key not null,
+  `name` varchar(100) ,
   `password` varchar(100) , 
   `email` varchar(100) ,
   `role` varchar(100) , 
@@ -10,8 +10,8 @@ create table `a_employee`(
 
 -- drop table a_leavebill;
 create table `a_leavebill`(
-	`id` varchar(32) primary key not null, 
-	`days` integer ,
+  `id` varchar(32) primary key not null, 
+  `days` integer ,
   `content` varchar(500) , 
   `leaveDate` timestamp,
   `state` integer

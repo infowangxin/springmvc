@@ -1,19 +1,17 @@
-package cn.itcast.ssh.service;
+package cn.springmvc.mybatis.activiti.service;
 
 import java.util.List;
 
-import cn.itcast.ssh.domain.LeaveBill;
-
-
+import cn.springmvc.mybatis.entity.activiti.LeaveBill;
 
 public interface ILeaveBillService {
 
-	List<LeaveBill> findLeaveBillList();
+    List<LeaveBill> findLeaveBillList();
 
-	void saveLeaveBill(LeaveBill leaveBill);
+    void saveLeaveBill(LeaveBill leaveBill);
 
-	LeaveBill findLeaveBillById(Long id);
+    LeaveBill findLeaveBillById(Long id);
 
-	void deleteLeaveBillById(Long id);
+    void deleteLeaveBillById(Long id);
 
 }

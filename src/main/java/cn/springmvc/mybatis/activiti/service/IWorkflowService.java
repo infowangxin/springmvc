@@ -1,4 +1,4 @@
-package cn.itcast.ssh.service;
+package cn.springmvc.mybatis.activiti.service;
 
 import java.io.File;
 import java.io.InputStream;
@@ -10,43 +10,39 @@ import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.task.Comment;
 import org.activiti.engine.task.Task;
 
-import cn.itcast.ssh.domain.LeaveBill;
-import cn.itcast.ssh.web.form.WorkflowBean;
-
-
+import cn.springmvc.mybatis.entity.activiti.LeaveBill;
+import cn.springmvc.mybatis.entity.activiti.WorkflowBean;
 
 public interface IWorkflowService {
 
-	void saveNewDeploye(File file, String filename);
+    void saveNewDeploye(File file, String filename);
 
-	List<Deployment> findDeploymentList();
+    List<Deployment> findDeploymentList();
 
-	List<ProcessDefinition> findProcessDefinitionList();
+    List<ProcessDefinition> findProcessDefinitionList();
 
-	InputStream findImageInputStream(String deploymentId, String imageName);
+    InputStream findImageInputStream(String deploymentId, String imageName);
 
-	void deleteProcessDefinitionByDeploymentId(String deploymentId);
+    void deleteProcessDefinitionByDeploymentId(String deploymentId);
 
-	void saveStartProcess(WorkflowBean workflowBean);
+    void saveStartProcess(WorkflowBean workflowBean);
 
-	List<Task> findTaskListByName(String name);
+    List<Task> findTaskListByName(String name);
 
-	String findTaskFormKeyByTaskId(String taskId);
+    String findTaskFormKeyByTaskId(String taskId);
 
-	LeaveBill findLeaveBillByTaskId(String taskId);
+    LeaveBill findLeaveBillByTaskId(String taskId);
 
-	List<String> findOutComeListByTaskId(String taskId);
+    List<String> findOutComeListByTaskId(String taskId);
 
-	void saveSubmitTask(WorkflowBean workflowBean);
+    void saveSubmitTask(WorkflowBean workflowBean);
 
-	List<Comment> findCommentByTaskId(String taskId);
+    List<Comment> findCommentByTaskId(String taskId);
 
-	List<Comment> findCommentByLeaveBillId(Long id);
+    List<Comment> findCommentByLeaveBillId(Long id);
 
-	ProcessDefinition findProcessDefinitionByTaskId(String taskId);
+    ProcessDefinition findProcessDefinitionByTaskId(String taskId);
 
-	Map<String, Object> findCoordingByTask(String taskId);
-
-	
+    Map<String, Object> findCoordingByTask(String taskId);
 
 }

@@ -1,22 +1,15 @@
-package cn.itcast.ssh.service.impl;
+package cn.springmvc.mybatis.activiti.service.impl;
 
-import cn.itcast.ssh.dao.IEmployeeDao;
-import cn.itcast.ssh.domain.Employee;
-import cn.itcast.ssh.service.IEmployeeService;
+import cn.springmvc.mybatis.entity.activiti.Employee;
+import cn.springmvc.mybatis.service.activiti.EmployeeService;
 
 public class EmployeeServiceImpl implements EmployeeService {
 
-	private IEmployeeDao employeeDao;
+    /** 使用用户名作为查询条件，查询用户对象 */
+    @Override
+    public Employee findEmployeeByName(String name) {
+        // Employee employee = employeeDao.findEmployeeByName(name);
+        return null;
+    }
 
-	public void setEmployeeDao(IEmployeeDao employeeDao) {
-		this.employeeDao = employeeDao;
-	}
-	
-	/**使用用户名作为查询条件，查询用户对象*/
-	@Override
-	public Employee findEmployeeByName(String name) {
-		Employee employee = employeeDao.findEmployeeByName(name);
-		return employee;
-	}
-	
 }

@@ -59,7 +59,7 @@ public class WebUtil {
 
     public static boolean hasManager() throws BusinessException {
         try {
-            if (SecurityUtils.getSubject().hasRole(Constants.SYSTEM_ROLE_CODE) || SecurityUtils.getSubject().hasRole(Constants.COMMON_ROLE_CODE)) {
+            if (SecurityUtils.getSubject().hasRole(Constants.ROLE_MANAGER_CODE) || SecurityUtils.getSubject().hasRole(Constants.COMMON_ROLE_CODE)) {
                 return true;
             } else {
                 return false;
