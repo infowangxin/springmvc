@@ -11,7 +11,6 @@
 <link href="<c:url value='/static/jquery/themes/base/jquery-ui.min.css?${version_css}'/>" rel="stylesheet" type="text/css" />
 
 <script src="<c:url value='/static/jquery/ui/jquery-ui.custom.min.js?${version_js}'/>" type="text/javascript"></script>
-<%-- <script src="<c:url value='/static/jquery/ui/jquery.ui.dialog.min.js?${version_js}'/>" type="text/javascript"></script> --%>
 <script src="<c:url value='/static/jquery/ui/jquery.ui.datepicker.min.js?${version_js}'/>" type="text/javascript"></script>
 <script src="<c:url value='/static/jquery/ui/i18n/jquery.ui.datepicker-zh-CN.min.js?${version_js}'/>" type="text/javascript"></script>
 <script src="${ctx}/static/js/news/add.js?${version_js}" type="text/javascript"></script>

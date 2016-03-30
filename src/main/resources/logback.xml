@@ -44,8 +44,11 @@
 
 	<logger name="net.spy.memcached" level="DEBUG" />
 
-	<logger name="java.sql.Connection" level="INFO" />
-	<logger name="java.sql.Statement" level="INFO" />
+	<logger name="org.apache.ibatis.jdbc.ScriptRunner" level="debug" />
+	<logger name="java.sql.Connection" level="debug" />
+	<logger name="java.sql.Statement" level="debug" />
+	<logger name="java.sql.PreparedStatement" level="debug" />
+
 
 	<logger name="org.springframework" level="INFO" />
 	<logger name="org.hibernate" level="INFO" />
@@ -56,7 +59,7 @@
 	<logger name="net.rubyeye.xmemcached" level="INFO" />
 
 	<!-- 日志级别：TRACE < DEBUG < INFO < WARN < ERROR -->
-	<root level="INFO">
+	<root level="DEBUG">
 		<!-- 输出到控制台 -->
 		<appender-ref ref="stdout" />
 

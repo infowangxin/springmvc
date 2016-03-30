@@ -59,13 +59,31 @@ body {
 	<div class="container">
 		<form:form action="${ctx }/login.htm" cssClass="form-signin" modelAttribute="userCommand" method="POST">
 			<h3 class="form-signin-heading">请登录</h3>
-			<input type="text" class="form-control input-block-level" id="username" name="username" placeholder="用户" value="guest">
-			<input type="password" class="form-control input-block-level" id="password" name="password" placeholder="密码" value="guest">
+			<input type="text" class="form-control input-block-level" id="username" name="username" placeholder="用户" value="wzj">
+			<input type="password" class="form-control input-block-level" id="password" name="password" placeholder="密码" value="123456">
 			<form:errors cssClass="login-error"></form:errors>
 			<button class="btn btn-large btn-primary" type="submit">登录</button>
 			</br>
 			</br>
 		</form:form>
+	</div>
+	<br />
+	<div class="container">
+		<div class="row col-md-offset-5">
+			<strong>王中军</strong>&nbsp;：&nbsp;wzj&nbsp;/&nbsp;123456
+		</div>
+		<div class="row col-md-offset-5">
+			<strong>冯小刚经纪人</strong>&nbsp;：&nbsp;fxg_manager&nbsp;/&nbsp;123456
+		</div>
+		<div class="row col-md-offset-5">
+			<strong>范冰冰经纪人</strong>&nbsp;：&nbsp;fbb_manager&nbsp;/&nbsp;123456
+		</div>
+		<div class="row col-md-offset-5">
+			<strong>冯小刚</strong>&nbsp;：&nbsp;fxg&nbsp;/&nbsp;123456
+		</div>
+		<div class="row col-md-offset-5">
+			<strong>范冰冰</strong>&nbsp;：&nbsp;fbb&nbsp;/&nbsp;123456
+		</div>
 	</div>
 
 </body>

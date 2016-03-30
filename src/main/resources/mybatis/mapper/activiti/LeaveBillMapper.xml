@@ -41,6 +41,12 @@
 			WHERE ID=#{id}
 		]]>
 	</select>
+	
+	<select id="findAll" resultMap="baseMap">
+		<include refid="find_xxx" />
+		<include refid="from_xxx" />
+		<include refid="where_xxx" />
+	</select>
 
 	<update id="update" parameterType="cn.springmvc.mybatis.entity.activiti.LeaveBill">
 		UPDATE a_leavebill

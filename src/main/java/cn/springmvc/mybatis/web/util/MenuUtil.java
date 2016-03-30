@@ -21,6 +21,13 @@ public class MenuUtil implements Serializable {
 
     private static final long serialVersionUID = -2205059367852213007L;
 
+    public static final String leaveBill = "leaveBill";
+    public static final String leaveBill_home = "home";
+
+    public static final String workflow = "workflow";
+    public static final String workflow_deployHome = "deployHome";
+    public static final String workflow_listTask = "listTask";
+
     public static final String user = "user";
     public static final String useradd = "register";
     public static final String upload = "upload";
@@ -37,9 +44,16 @@ public class MenuUtil implements Serializable {
     public static List<Permission> importPermissionData() {
         List<Permission> permis = new ArrayList<Permission>();
 
-        permis.add(initPermission("文件上传", upload, Constants.STATUS_VALID, null, 1, upload));
-        permis.add(initPermission("ajax上传文件", ajaxupload, Constants.STATUS_VALID, "upload/ajax", 2, upload));
-        permis.add(initPermission("spring上传文件", springupload, Constants.STATUS_VALID, "upload/spring", 3, upload));
+        permis.add(initPermission("业务管理", leaveBill, Constants.STATUS_VALID, null, 1, leaveBill));
+        permis.add(initPermission("请假管理", leaveBill_home, Constants.STATUS_VALID, "activiti/home", 2, leaveBill));
+
+        permis.add(initPermission("流程管理", workflow, Constants.STATUS_VALID, null, 3, workflow));
+        permis.add(initPermission("部署管理", workflow_deployHome, Constants.STATUS_VALID, "activiti/deployHome", 4, workflow));
+        permis.add(initPermission("任务管理", workflow_listTask, Constants.STATUS_VALID, "activiti/listTask", 5, workflow));
+
+        permis.add(initPermission("文件上传", upload, Constants.STATUS_VALID, null, 7, upload));
+        permis.add(initPermission("ajax上传文件", ajaxupload, Constants.STATUS_VALID, "upload/ajax", 8, upload));
+        permis.add(initPermission("spring上传文件", springupload, Constants.STATUS_VALID, "upload/spring", 9, upload));
 
         permis.add(initPermission("文件下载", download, Constants.STATUS_VALID, null, 101, download));
         permis.add(initPermission("zip下载", zipupload, Constants.STATUS_VALID, "download/zip", 102, download));

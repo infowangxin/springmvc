@@ -7,12 +7,12 @@ import cn.springmvc.mybatis.mapper.BaseMapper;
 
 public interface LeaveBillMapper extends BaseMapper<String, LeaveBill> {
 
-    List<LeaveBill> findLeaveBillList();
+    public List<LeaveBill> findAll();
 
-    void saveLeaveBill(LeaveBill leaveBill);
+    public void saveLeaveBill(LeaveBill leaveBill);
 
-    void updateLeaveBill(LeaveBill leaveBill);
+    public void updateLeaveBill(LeaveBill leaveBill);
 
-    LeaveBill findLeaveBillById(String id);
+    public LeaveBill findLeaveBillById(String id);
 
 }

@@ -1,13 +1,11 @@
 package cn.springmvc.mybatis.web.controller.activiti;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.activiti.engine.repository.Deployment;
@@ -15,8 +13,6 @@ import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.task.Comment;
 import org.activiti.engine.task.Task;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,37 +22,35 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import cn.springmvc.mybatis.activiti.utils.ValueContext;
 import cn.springmvc.mybatis.entity.activiti.LeaveBill;
 import cn.springmvc.mybatis.entity.activiti.WorkflowBean;
 import cn.springmvc.mybatis.service.activiti.ActivitiService;
-import cn.springmvc.mybatis.service.auth.AuthService;
 import cn.springmvc.mybatis.web.util.WebUtil;
 
 @Controller
 @RequestMapping(value = "activiti")
 public class ActivitiController {
 
-    private static final Logger log = LoggerFactory.getLogger(ActivitiController.class);
+    // private static final Logger log = LoggerFactory.getLogger(ActivitiController.class);
 
     @Autowired
     private ActivitiService activitiService;
 
-    @Autowired
-    private AuthService authService;
+    // @Autowired
+    // private AuthService authService;
 
     /**
      * 请假管理首页显示
      * 
      * @return
      */
-    @RequestMapping(value = "list")
+    @RequestMapping(value = "home")
     public String home(Model model) {
         // 1：查询所有的请假信息（对应a_leavebill），返回List<LeaveBill>
         List<LeaveBill> list = activitiService.findLeaveBillList();
         // 放置到上下文对象中
         model.addAttribute("list", list);
-        return "home";
+        return "activiti/home";
     }
 
     /**
@@ -65,28 +59,30 @@ public class ActivitiController {
      * @return
      */
     @RequestMapping(value = "input")
-    public String input(@RequestParam("leaveBillId") String leaveBillId, Model model) {
+    public String input(Model model) {
         // 1：获取请假单ID
+        String leaveBillId = null;
         // 修改
         if (StringUtils.isNoneBlank(leaveBillId)) {
+
             // 2：使用请假单ID，查询请假单信息，
             LeaveBill bill = activitiService.findLeaveBillById(leaveBillId);
             // 3：将请假单信息放置到栈顶，页面使用struts2的标签，支持表单回显
-            ValueContext.putValueStack(bill);
+            // ValueContext.putValueStack(bill);
         }
         // 新增
-        return "input";
+        return "activiti/input";
     }
 
     /**
      * 保存/更新，请假申请
      * 
      */
-    @RequestMapping(value = "input")
+    @RequestMapping(value = "save")
     public String save(@ModelAttribute("leaveBill") LeaveBill leaveBill) {
         // 执行保存
         activitiService.saveLeaveBill(leaveBill);
-        return "save";
+        return "activiti/save";
     }
 
     /**
@@ -98,7 +94,7 @@ public class ActivitiController {
         // 1：获取请假单ID
         // 执行删除
         activitiService.deleteLeaveBillById(leaveBillId);
-        return "save";
+        return "activiti/save";
     }
 
     // ==================以下方法为与工作流相关方法=========================================
@@ -117,7 +113,7 @@ public class ActivitiController {
         // 放置到上下文对象中
         model.addAttribute("depList", depList);
         model.addAttribute("pdList", pdList);
-        return "deployHome";
+        return "activiti/deployHome";
     }
 
     /**
@@ -127,24 +123,25 @@ public class ActivitiController {
      * @throws IOException
      */
     @RequestMapping(value = "newdeploy", method = RequestMethod.POST)
-    public String newdeploy(@RequestParam("bpmnZip") MultipartFile bpmnZip, Model model) throws IOException {
+    public String newdeploy(@RequestParam("bpmnZip") MultipartFile bpmnZip, @RequestParam("processDefinitionName") String processDefinitionName, Model model) throws IOException {
+
         // 获取页面传递的值
         // 1：获取页面上传递的zip格式的文件，格式是File类型
         byte bytes[] = bpmnZip.getBytes();
         // 文件名称
-        String filename = bpmnZip.getName();
+        // String filename = bpmnZip.getName();
         // 完成部署
-        activitiService.saveNewDeploye(bytes, filename);
-        return "list";
+        activitiService.saveNewDeploye(bytes, processDefinitionName);
+        return "redirect:/activiti/deployHome";
     }
 
     /**
      * 删除部署信息
      */
     @RequestMapping(value = "delDeployment")
-    public String delDeployment() {
+    public String delDeployment(@RequestParam("deploymentId") String deploymentId) {
         // 1：获取部署对象ID
-        String deploymentId = activitiService.getDeploymentId();
+        // String deploymentId = activitiService.getDeploymentId();
         // 2：使用部署对象ID，删除流程定义
         activitiService.deleteProcessDefinitionByDeploymentId(deploymentId);
         return "list";
@@ -265,7 +262,7 @@ public class ActivitiController {
         // Long id = workflowBean.getId();
         // 1：使用请假单ID，查询请假单对象，将对象放置到栈顶，支持表单回显
         LeaveBill leaveBill = activitiService.findLeaveBillById(leaveBillId);
-        ValueContext.putValueStack(leaveBill);
+        // ValueContext.putValueStack(leaveBill);
         // 2：使用请假单ID，查询历史的批注信息
         List<Comment> commentList = activitiService.findCommentByLeaveBillId(leaveBillId);
         model.addAttribute("commentList", commentList);

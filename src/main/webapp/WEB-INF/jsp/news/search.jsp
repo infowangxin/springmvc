@@ -40,6 +40,13 @@
 				</tr>
 			</thead>
 			<tbody id="newsBody">
+				<c:forEach var="file" items="${files }" varStatus="cur">
+					<tr>
+						<td>${cur.index+1 }</td>
+						<td><a href="javascript:void(0);" class="downloadfile" data-file-path="${file.absolutePath }"><strong>${file.name }</strong></a></td>
+						<td><a href="javascript:void(0);" class="downloadzipfile" data-file-path="${file.absolutePath }"><strong>zip</strong></a></td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>

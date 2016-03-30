@@ -8,7 +8,7 @@
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<util:properties id="p_datasource" location="classpath:/config/config-datasource.properties" />
+	<util:properties id="p_datasource" location="classpath:/config/datasource.properties" />
 
 	<!-- 主数据源，使用alibaba druid连接池 -->
 	<bean id="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">

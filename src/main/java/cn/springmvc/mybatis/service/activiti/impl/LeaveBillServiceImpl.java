@@ -21,7 +21,7 @@ public class LeaveBillServiceImpl implements LeaveBillService {
     /** 查询自己的请假单的信息 */
     @Override
     public List<LeaveBill> findLeaveBillList() {
-        List<LeaveBill> list = leaveBillMapper.findLeaveBillList();
+        List<LeaveBill> list = leaveBillMapper.findAll();
         return list;
     }
 

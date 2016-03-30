@@ -132,6 +132,11 @@ public class InitServiceTest {
     private void bindRolePermission() {
         try {
             // 总经理
+            roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.leaveBill);
+            roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.leaveBill_home);
+            roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.workflow);
+            roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.workflow_deployHome);
+            roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.workflow_listTask);
             roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.user);
             roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.useradd);
             roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.upload);
@@ -146,6 +151,11 @@ public class InitServiceTest {
             roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.news_search);
 
             // 管理员
+            roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.leaveBill);
+            roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.leaveBill_home);
+            roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.workflow);
+            roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.workflow_deployHome);
+            roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.workflow_listTask);
             roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.user);
             roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.useradd);
             roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.upload);
@@ -160,6 +170,11 @@ public class InitServiceTest {
             roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.news_search);
 
             // 普通用户
+            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.leaveBill);
+            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.leaveBill_home);
+            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.workflow);
+            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.workflow_deployHome);
+            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.workflow_listTask);
             roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.upload);
             roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.ajaxupload);
             roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.springupload);

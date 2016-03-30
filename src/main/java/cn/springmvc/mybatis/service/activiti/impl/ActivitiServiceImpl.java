@@ -1,14 +1,23 @@
 package cn.springmvc.mybatis.service.activiti.impl;
 
+import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.ZipInputStream;
 
+import org.activiti.engine.FormService;
+import org.activiti.engine.HistoryService;
+import org.activiti.engine.RepositoryService;
+import org.activiti.engine.RuntimeService;
+import org.activiti.engine.TaskService;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.task.Comment;
 import org.activiti.engine.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import cn.springmvc.mybatis.entity.activiti.LeaveBill;
@@ -22,10 +31,24 @@ public class ActivitiServiceImpl implements ActivitiService {
     @Autowired
     private LeaveBillMapper leaveBillMapper;
 
+    @Qualifier("repositoryService")
+    private RepositoryService repositoryService;
+
+    @Qualifier("runtimeService")
+    private RuntimeService runtimeService;
+
+    @Qualifier("taskService")
+    private TaskService taskService;
+
+    @Qualifier("formService")
+    private FormService formService;
+
+    @Qualifier("historyService")
+    private HistoryService historyService;
+
     @Override
     public List<LeaveBill> findLeaveBillList() {
-        Map<String, Object> paramMap = null;
-        return leaveBillMapper.findAllByFilter(paramMap);
+        return leaveBillMapper.findAll();
     }
 
     @Override
@@ -57,8 +80,17 @@ public class ActivitiServiceImpl implements ActivitiService {
 
     @Override
     public void saveNewDeploye(byte[] bytes, String filename) {
-        // TODO Auto-generated method stub
-        
+        try {
+            // 2：将byte类型的文件转化成ZipInputStream流
+            InputStream stream = new ByteArrayInputStream(bytes);
+            ZipInputStream zipInputStream = new ZipInputStream(stream);
+            repositoryService.createDeployment()// 创建部署对象
+                .name(filename)// 添加部署名称
+                .addZipInputStream(zipInputStream)//
+                .deploy();// 完成部署
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -70,7 +102,7 @@ public class ActivitiServiceImpl implements ActivitiService {
     @Override
     public void deleteProcessDefinitionByDeploymentId(String deploymentId) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
@@ -82,7 +114,7 @@ public class ActivitiServiceImpl implements ActivitiService {
     @Override
     public void saveStartProcess(WorkflowBean workflowBean) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
@@ -118,7 +150,7 @@ public class ActivitiServiceImpl implements ActivitiService {
     @Override
     public void saveSubmitTask(WorkflowBean workflowBean) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
