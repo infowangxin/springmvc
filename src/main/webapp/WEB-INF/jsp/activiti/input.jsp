@@ -34,21 +34,21 @@
 		<div class="form-group">
 			<label for="description" class="col-sm-2 control-label">请假原因：</label>
 			<div class="col-sm-4">
-				<textarea class="form-control" name="content" id="content" row="15"></textarea>
+				<textarea class="form-control" name="content" id="content" row="5"></textarea>
 			</div>
 			<form:errors cssClass="label label-danger" path="content"></form:errors>
 		</div>
 		<div class="form-group">
 			<label for="description" class="col-sm-2 control-label">备注：</label>
 			<div class="col-sm-4">
-				<textarea class="form-control" name="remark" id="remark" row="15"></textarea>
+				<textarea class="form-control" name="remark" id="remark" row="5"></textarea>
 			</div>
 			<form:errors cssClass="label label-danger" path="remark"></form:errors>
 		</div>
 		<div class="form-group input-group-sm">
 			<label class="col-sm-2 control-label">&nbsp;</label>
 			<div class="col-sm-2">
-				<button class="btn btn-default" type="button" id="saveBtn">提交</button>
+				<button class="btn btn-default" type="submit" id="saveBtn">提交</button>
 			</div>
 		</div>
 	</form:form>

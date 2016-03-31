@@ -78,11 +78,11 @@ public class ActivitiController {
      * 保存/更新，请假申请
      * 
      */
-    @RequestMapping(value = "save")
+    @RequestMapping(value = "save", method = RequestMethod.POST)
     public String save(@ModelAttribute("leaveBill") LeaveBill leaveBill) {
         // 执行保存
         activitiService.saveLeaveBill(leaveBill);
-        return "activiti/save";
+        return "redirect:/activiti/home";
     }
 
     /**
@@ -144,7 +144,7 @@ public class ActivitiController {
         // String deploymentId = activitiService.getDeploymentId();
         // 2：使用部署对象ID，删除流程定义
         activitiService.deleteProcessDefinitionByDeploymentId(deploymentId);
-        return "list";
+        return "redirect:/activiti/deployHome";
     }
 
     /**
@@ -153,10 +153,10 @@ public class ActivitiController {
      * @throws Exception
      */
     @RequestMapping(value = "viewImage")
-    public String viewImage(@RequestParam("imageName") String imageName, HttpServletResponse response) throws Exception {
+    public String viewImage(@RequestParam("deploymentId") String deploymentId, @RequestParam("imageName") String imageName, HttpServletResponse response) throws Exception {
         // 1：获取页面传递的部署对象ID和资源图片名称
         // 部署对象ID
-        String deploymentId = activitiService.getDeploymentId();
+        // String deploymentId = activitiService.getDeploymentId();
         // 资源图片名称
         // String imageName = workflowBean.getImageName();
         // 2：获取资源文件表（act_ge_bytearray）中资源图片输入流InputStream

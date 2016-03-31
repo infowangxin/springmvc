@@ -1,14 +1,16 @@
 package cn.springmvc.mybatis.service.activiti.impl;
 
 import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipInputStream;
 
+import javax.annotation.Resource;
+
 import org.activiti.engine.FormService;
 import org.activiti.engine.HistoryService;
+import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
@@ -17,7 +19,6 @@ import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.task.Comment;
 import org.activiti.engine.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import cn.springmvc.mybatis.entity.activiti.LeaveBill;
@@ -31,19 +32,22 @@ public class ActivitiServiceImpl implements ActivitiService {
     @Autowired
     private LeaveBillMapper leaveBillMapper;
 
-    @Qualifier("repositoryService")
+    @Resource(name = "processEngine")
+    private ProcessEngine processEngine;
+
+    @Resource(name = "repositoryService")
     private RepositoryService repositoryService;
 
-    @Qualifier("runtimeService")
+    @Resource(name = "runtimeService")
     private RuntimeService runtimeService;
 
-    @Qualifier("taskService")
+    @Resource(name = "taskService")
     private TaskService taskService;
 
-    @Qualifier("formService")
+    @Resource(name = "formService")
     private FormService formService;
 
-    @Qualifier("historyService")
+    @Resource(name = "historyService")
     private HistoryService historyService;
 
     @Override
@@ -68,14 +72,18 @@ public class ActivitiServiceImpl implements ActivitiService {
 
     @Override
     public List<Deployment> findDeploymentList() {
-        // TODO Auto-generated method stub
-        return null;
+        List<Deployment> list = repositoryService.createDeploymentQuery()// 创建部署对象查询
+            .orderByDeploymenTime().asc()//
+            .list();
+        return list;
     }
 
     @Override
     public List<ProcessDefinition> findProcessDefinitionList() {
-        // TODO Auto-generated method stub
-        return null;
+        List<ProcessDefinition> list = repositoryService.createProcessDefinitionQuery()// 创建流程定义查询
+            .orderByProcessDefinitionVersion().asc()//
+            .list();
+        return list;
     }
 
     @Override
@@ -101,14 +109,12 @@ public class ActivitiServiceImpl implements ActivitiService {
 
     @Override
     public void deleteProcessDefinitionByDeploymentId(String deploymentId) {
-        // TODO Auto-generated method stub
-
+        repositoryService.deleteDeployment(deploymentId, true);
     }
 
     @Override
     public InputStream findImageInputStream(String deploymentId, String imageName) {
-        // TODO Auto-generated method stub
-        return null;
+        return repositoryService.getResourceAsStream(deploymentId, imageName);
     }
 
     @Override
