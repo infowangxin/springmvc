@@ -103,8 +103,8 @@ public class WorkflowServiceImpl implements WorkflowService {
     @Override
     public void saveStartProcess(WorkflowBean workflowBean) {
         // 1：获取请假单ID，使用请假单ID，查询请假单的对象LeaveBill
-        String id = workflowBean.getId();
-        LeaveBill leaveBill = leaveBillMapper.findLeaveBillById(id);
+        Long id = workflowBean.getId();
+        LeaveBill leaveBill = leaveBillMapper.findById(id);
         // 2：更新请假单的请假状态从0变成1（初始录入-->审核中）
         leaveBill.setState(1);
         // 3：使用当前对象获取到流程定义的key（对象的名称就是流程定义的key）
@@ -167,7 +167,7 @@ public class WorkflowServiceImpl implements WorkflowService {
         }
         // 查询请假单对象
         // 使用hql语句：from LeaveBill o where o.id=1
-        LeaveBill leaveBill = leaveBillMapper.findLeaveBillById(id);
+        LeaveBill leaveBill = leaveBillMapper.findById(Long.valueOf(id));
         return leaveBill;
     }
 
@@ -219,7 +219,7 @@ public class WorkflowServiceImpl implements WorkflowService {
         // 批注信息
         String message = workflowBean.getComment();
         // 获取请假单ID
-        String id = workflowBean.getId();
+        Long id = workflowBean.getId();
 
         /**
          * 1：在完成之前，添加一个批注信息，向act_hi_comment表中添加数据，用于记录对当前申请人的一些审核信息
@@ -257,7 +257,7 @@ public class WorkflowServiceImpl implements WorkflowService {
         // 流程结束了
         if (pi == null) {
             // 更新请假单表的状态从1变成2（审核中-->审核完成）
-            LeaveBill bill = leaveBillMapper.findLeaveBillById(id);
+            LeaveBill bill = leaveBillMapper.findById(id);
             bill.setState(2);
         }
     }
@@ -293,9 +293,9 @@ public class WorkflowServiceImpl implements WorkflowService {
 
     /** 使用请假单ID，查询历史批注信息 */
     @Override
-    public List<Comment> findCommentByLeaveBillId(String id) {
+    public List<Comment> findCommentByLeaveBillId(Long id) {
         // 使用请假单ID，查询请假单对象
-        LeaveBill leaveBill = leaveBillMapper.findLeaveBillById(id);
+        LeaveBill leaveBill = leaveBillMapper.findById(id);
         // 获取对象的名称
         String objectName = leaveBill.getClass().getSimpleName();
         // 组织流程表中的字段中的值

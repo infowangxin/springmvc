@@ -52,11 +52,24 @@
 						<td>${lb.id }</td>
 						<td>${lb.userId }</td>
 						<td>${lb.days }</td>
-						<td>${lb.days }</td>
 						<td>${lb.content }</td>
+						<td>${lb.remark }</td>
 						<td><fmt:formatDate value="${lb.leaveDate}" type="both" /></td>
-						<td>${lb.state }</td>
-						<td>操作</td>
+						<td>${lb.stateName }</td>
+						<td><c:choose>
+								<c:when test="${lb.state==0 }">
+									<a href="${ctx }/activiti/input?id=${lb.id}">修改</a>
+									<a href="${ctx }/activiti/delete?id=${lb.id }">删除</a>
+									<a href="${ctx }/activiti/startProcess?id=${lb.id }">申请请假</a>
+								</c:when>
+								<c:when test="${lb.state==1 }">
+									<a href="${ctx }/activiti/viewHisComment?id=${lb.id }">查看审核记录</a>
+								</c:when>
+								<c:otherwise>
+									<a href="${ctx }/activiti/delete.action?id=${lb.id }“>删除</a>
+									<a href="${ctx }/activiti/viewHisComment?id=${lb.id }">查看审核记录</a>
+								</c:otherwise>
+							</c:choose></td>
 					</tr>
 				</c:forEach>
 			</tbody>

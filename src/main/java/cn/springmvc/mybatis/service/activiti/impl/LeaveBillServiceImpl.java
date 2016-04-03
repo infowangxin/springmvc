@@ -29,7 +29,7 @@ public class LeaveBillServiceImpl implements LeaveBillService {
     @Override
     public void saveLeaveBill(LeaveBill leaveBill) {
         // 获取请假单ID
-        String id = leaveBill.getId();
+        Long id = leaveBill.getId();
         /** 新增保存 */
         if (id == null) {
             // 1：从Session中获取当前用户对象，将LeaveBill对象中user与Session中获取的用户对象进行关联
@@ -49,14 +49,14 @@ public class LeaveBillServiceImpl implements LeaveBillService {
 
     /** 使用请假单ID，查询请假单的对象 */
     @Override
-    public LeaveBill findLeaveBillById(String id) {
-        LeaveBill bill = leaveBillMapper.findLeaveBillById(id);
+    public LeaveBill findLeaveBillById(Long id) {
+        LeaveBill bill = leaveBillMapper.findById(id);
         return bill;
     }
 
     /** 使用请假单ID，删除请假单 */
     @Override
-    public void deleteLeaveBillById(String id) {
+    public void deleteLeaveBillById(Long id) {
         leaveBillMapper.delete(id);
     }
 

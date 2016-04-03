@@ -10,7 +10,7 @@ public class WorkflowBean implements Serializable {
     private File file; // 流程定义部署文件
     private String filename;// 流程定义名称
 
-    private String id;// 申请单ID
+    private Long id;// 申请单ID
 
     private String deploymentId;// 部署对象ID
     private String imageName; // 资源文件名称
@@ -34,11 +34,11 @@ public class WorkflowBean implements Serializable {
         this.filename = filename;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

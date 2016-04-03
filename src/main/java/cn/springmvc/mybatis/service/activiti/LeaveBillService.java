@@ -10,8 +10,8 @@ public interface LeaveBillService {
 
     void saveLeaveBill(LeaveBill leaveBill);
 
-    LeaveBill findLeaveBillById(String id);
+    LeaveBill findLeaveBillById(Long id);
 
-    void deleteLeaveBillById(String id);
+    void deleteLeaveBillById(Long id);
 
 }

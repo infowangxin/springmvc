@@ -24,7 +24,7 @@ import cn.springmvc.mybatis.web.util.MenuUtil;
  *         production为生产环境，development为测试环境
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:/spring/applicationContext.xml", "classpath:/spring/applicationContext-dao.xml", "classpath:/spring/applicationContext-shiro.xml" })
+@ContextConfiguration(locations = { "classpath:/spring/applicationContext.xml", "classpath:/spring/applicationContext-dao.xml", "classpath:/spring/applicationContext-shiro.xml","classpath:/spring/applicationContext-activiti.xml" })
 @ActiveProfiles("development")
 public class InitServiceTest {
 

@@ -26,17 +26,17 @@
 				<tr>
 					<th>任务ID</th>
 					<th>任务名称</th>
-					<th>创建时间</th>
-					<th>办理人</th>
+					<!-- 					<th>创建时间</th> -->
+					<!-- 					<th>办理人</th> -->
 					<th>操作</th>
 				</tr>
 			</thead>
 			<tbody id="leaveBillBody">
-				<c:forEach var="dep" items="${depList }" varStatus="cur">
+				<c:forEach var="dep" items="${list }" varStatus="cur">
 					<tr>
 						<td>${dep.id }</td>
 						<td>${dep.name }</td>
-						<td><fmt:formatDate value="${dep.deploymentTime}" type="both" /></td>
+						<%-- 						<td><fmt:formatDate value="${dep.deploymentTime}" type="both" /></td> --%>
 						<td><a href="${ctx }/activiti/delDeployment?deploymentId=${dep.id }">删除</a></td>
 					</tr>
 				</c:forEach>

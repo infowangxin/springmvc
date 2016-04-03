@@ -7,18 +7,20 @@
 		<result column="id" property="id" />
 		<result column="days" property="days" />
 		<result column="content" property="content" />
+		<result column="remark" property="remark" />
 		<result column="leaveDate" property="leaveDate" />
 		<result column="state" property="state" />
+		<result column="user_id" property="userId" />
 	</resultMap>
 
 	<insert id="insert" parameterType="cn.springmvc.mybatis.entity.activiti.LeaveBill">
-		INSERT INTO a_leavebill(id , days , content , leaveDate , state)
-		VALUES(#{id} , #{days} , #{content} , #{leaveDate} , #{state})
+		INSERT INTO a_leavebill(id , days , content ,remark, leaveDate , state, user_id)
+		VALUES(default, #{days} , #{content} ,#{remark}, #{leaveDate} , #{state}, #{userId} )
 	</insert>
 
 	<sql id="find_xxx">
 	    <![CDATA[
-			SELECT id , days , content , leaveDate , state
+			SELECT id , days , content ,remark, leaveDate , state , user_id
 	    ]]>
 	</sql>
 
@@ -57,11 +59,17 @@
 			<if test="content != null">
 				content = #{content},
 			</if>
+			<if test="remark != null">
+				remark = #{remark},
+			</if>
 			<if test="leaveDate != null">
 				leaveDate = #{leaveDate},
 			</if>
+			<if test="userId != null">
+				user_id = #{userId},
+			</if>
 			<if test="state != null">
-				state = #{state},
+				state = #{state}
 			</if>
 		</set>
 		WHERE ID = #{id}

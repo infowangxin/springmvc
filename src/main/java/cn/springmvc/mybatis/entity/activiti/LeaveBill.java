@@ -7,10 +7,10 @@ import cn.springmvc.mybatis.entity.BaseEntity;
 /**
  * 请假单
  */
-public class LeaveBill implements BaseEntity<String> {
+public class LeaveBill implements BaseEntity<Long> {
 
     private static final long serialVersionUID = -5400999970408251440L;
-    private String id;
+    private Long id;
     private Integer days;// 请假天数
     private String content;// 请假内容
     private Date leaveDate = new Date();// 请假时间
@@ -19,11 +19,11 @@ public class LeaveBill implements BaseEntity<String> {
 
     private Integer state = 0;// 请假单状态 0初始录入,1.开始审批,2为审批完成
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -73,6 +73,16 @@ public class LeaveBill implements BaseEntity<String> {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+    
+    public String getStateName(){
+        if(state==0){
+            return "初始录入";
+        }else if(state==1){
+            return "审核中";
+        }else{
+            return "审核完成";
+        }
     }
 
 }

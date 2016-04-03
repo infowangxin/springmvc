@@ -15,7 +15,7 @@ create table `a_leavebill` (
   `remark` varchar(255) default null,
   `leavedate` datetime default null,
   `state` int(11) default null,
-  `user_id` bigint(20) default null
+  `user_id` varchar(32) default null
 ) engine=innodb default charset=utf8;
 
 insert a_employee(id,name,password,email,role,manager_id) values( 1,'王中军','123','wangzhongjun@163.com','boss',NULL );

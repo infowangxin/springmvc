@@ -14,7 +14,7 @@
 
 	<insert id="insert" parameterType="cn.springmvc.mybatis.entity.activiti.Employee">
 		INSERT INTO a_employee(id , name , password , email , role , manager_id)
-		VALUES(#{id} , #{name} , #{password} , #{email} , #{role} , #{manager_id})
+		VALUES(#{id} , #{name} , #{password} , #{email} , #{role} , #{managerId})
 	</insert>
 
 	<sql id="find_xxx">

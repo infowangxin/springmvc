@@ -24,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import cn.springmvc.mybatis.entity.activiti.LeaveBill;
 import cn.springmvc.mybatis.entity.activiti.WorkflowBean;
+import cn.springmvc.mybatis.entity.auth.User;
 import cn.springmvc.mybatis.service.activiti.ActivitiService;
 import cn.springmvc.mybatis.web.util.WebUtil;
 
@@ -59,16 +60,17 @@ public class ActivitiController {
      * @return
      */
     @RequestMapping(value = "input")
-    public String input(Model model) {
+    public String input(@RequestParam(value = "id", required = false) Long leaveBillId, Model model) {
         // 1：获取请假单ID
-        String leaveBillId = null;
         // 修改
-        if (StringUtils.isNoneBlank(leaveBillId)) {
-
+        if (null!=leaveBillId) {
             // 2：使用请假单ID，查询请假单信息，
             LeaveBill bill = activitiService.findLeaveBillById(leaveBillId);
             // 3：将请假单信息放置到栈顶，页面使用struts2的标签，支持表单回显
-            // ValueContext.putValueStack(bill);
+//             ValueContext.putValueStack(bill);
+            model.addAttribute("bill", bill);
+        }else{
+            model.addAttribute("bill", new LeaveBill());
         }
         // 新增
         return "activiti/input";
@@ -81,6 +83,8 @@ public class ActivitiController {
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public String save(@ModelAttribute("leaveBill") LeaveBill leaveBill) {
         // 执行保存
+        User user = WebUtil.getUser();
+        leaveBill.setUserId(user.getId());
         activitiService.saveLeaveBill(leaveBill);
         return "redirect:/activiti/home";
     }
@@ -90,11 +94,11 @@ public class ActivitiController {
      * 
      */
     @RequestMapping(value = "delete")
-    public String delete(@RequestParam("leaveBillId") String leaveBillId, Model model) {
+    public String delete(@RequestParam("id") Long leaveBillId, Model model) {
         // 1：获取请假单ID
         // 执行删除
         activitiService.deleteLeaveBillById(leaveBillId);
-        return "activiti/save";
+        return "redirect:/activiti/home";
     }
 
     // ==================以下方法为与工作流相关方法=========================================
@@ -177,8 +181,9 @@ public class ActivitiController {
     @RequestMapping(value = "startProcess")
     public String startProcess(@ModelAttribute("workflowBean") WorkflowBean workflowBean) {
         // 更新请假状态，启动流程实例，让启动的流程实例关联业务
-        activitiService.saveStartProcess(workflowBean);
-        return "listTask";
+        User user = WebUtil.getUser();
+        activitiService.saveStartProcess(workflowBean,user);
+        return "redirect:/activiti/listTask";
     }
 
     /**
@@ -193,7 +198,7 @@ public class ActivitiController {
         // 2：使用当前用户名查询正在执行的任务表，获取当前任务的集合List<Task>
         List<Task> list = activitiService.findTaskListByName(name);
         model.addAttribute("list", list);
-        return "task";
+        return "activiti/task";
     }
 
     /**
@@ -257,7 +262,7 @@ public class ActivitiController {
 
     // 查看历史的批注信息
     @RequestMapping(value = "viewHisComment")
-    public String viewHisComment(@RequestParam("leaveBillId") String leaveBillId, Model model) {
+    public String viewHisComment(@RequestParam("id") Long leaveBillId, Model model) {
         // 获取清单ID
         // Long id = workflowBean.getId();
         // 1：使用请假单ID，查询请假单对象，将对象放置到栈顶，支持表单回显
@@ -266,7 +271,7 @@ public class ActivitiController {
         // 2：使用请假单ID，查询历史的批注信息
         List<Comment> commentList = activitiService.findCommentByLeaveBillId(leaveBillId);
         model.addAttribute("commentList", commentList);
-        return "viewHisComment";
+        return "activiti/viewHisComment";
     }
 
 }

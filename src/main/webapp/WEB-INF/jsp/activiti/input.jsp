@@ -24,24 +24,26 @@
 </head>
 <body>
 	<form:form action="${ctx }/activiti/save" commandName="leaveBill" id="leaveBill" method="post" class="form-horizontal">
+		<input type="hidden" name="id" value="${bill.id }"/>
+		<input type="hidden" name="userId" value="${bill.userId }"/>
 		<div class="form-group">
 			<label for="title" class="col-sm-2 control-label">请假天数：</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control" name="days" id="days" />
+				<input type="text" class="form-control" name="days" id="days" value="${bill.days }"/>
 			</div>
 			<form:errors cssClass="label label-danger" path="days"></form:errors>
 		</div>
 		<div class="form-group">
-			<label for="description" class="col-sm-2 control-label">请假原因：</label>
+			<label for="content" class="col-sm-2 control-label">请假原因：</label>
 			<div class="col-sm-4">
-				<textarea class="form-control" name="content" id="content" row="5"></textarea>
+				<textarea class="form-control" name="content" id="content" row="2">${bill.content }</textarea>
 			</div>
 			<form:errors cssClass="label label-danger" path="content"></form:errors>
 		</div>
 		<div class="form-group">
-			<label for="description" class="col-sm-2 control-label">备注：</label>
+			<label for="remark" class="col-sm-2 control-label">备注：</label>
 			<div class="col-sm-4">
-				<textarea class="form-control" name="remark" id="remark" row="5"></textarea>
+				<textarea class="form-control" name="remark" id="remark" row="2">${bill.remark }</textarea>
 			</div>
 			<form:errors cssClass="label label-danger" path="remark"></form:errors>
 		</div>

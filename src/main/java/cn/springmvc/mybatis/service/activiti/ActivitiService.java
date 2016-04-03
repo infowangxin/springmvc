@@ -11,6 +11,7 @@ import org.activiti.engine.task.Task;
 
 import cn.springmvc.mybatis.entity.activiti.LeaveBill;
 import cn.springmvc.mybatis.entity.activiti.WorkflowBean;
+import cn.springmvc.mybatis.entity.auth.User;
 
 public interface ActivitiService {
 
@@ -28,7 +29,7 @@ public interface ActivitiService {
      *            请假单ID
      * @return 请假单
      */
-    public LeaveBill findLeaveBillById(String leaveBillId);
+    public LeaveBill findLeaveBillById(Long leaveBillId);
 
     /**
      * 新增请假单
@@ -43,7 +44,7 @@ public interface ActivitiService {
      * 
      * @param leaveBillId
      */
-    public void deleteLeaveBillById(String leaveBillId);
+    public void deleteLeaveBillById(Long leaveBillId);
 
     // ======= 以下方法与工作流程方法相关
 
@@ -97,7 +98,7 @@ public interface ActivitiService {
      * 
      * @param workflowBean
      */
-    public void saveStartProcess(WorkflowBean workflowBean);
+    public void saveStartProcess(WorkflowBean workflowBean,User user);
 
     /**
      * 使用当前用户名查询正在执行的任务表，获取当前任务的集合List<Task>
@@ -168,6 +169,6 @@ public interface ActivitiService {
      * @param leaveBillId
      * @return
      */
-    public List<Comment> findCommentByLeaveBillId(String leaveBillId);
+    public List<Comment> findCommentByLeaveBillId(Long leaveBillId);
 
 }
