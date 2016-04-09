@@ -94,6 +94,7 @@ public class InitServiceTest {
             bossUser.setEmail("wangzhongjun@163.com");
             bossUser.setTrueName("王中军");
             bossUser.setPassword(password);
+            bossUser.setOrganizeId(boss.getId());
             userService.addUser(bossUser, boss);
 
             User fxgManager = new User();
@@ -101,6 +102,7 @@ public class InitServiceTest {
             fxgManager.setTrueName("冯小刚经纪人");
             fxgManager.setEmail("fengxiaogangManager@139.com");
             fxgManager.setPassword(password);
+            fxgManager.setOrganizeId(manager.getId());
             userService.addUser(fxgManager, manager);
 
             User fbbManager = new User();
@@ -108,6 +110,7 @@ public class InitServiceTest {
             fbbManager.setTrueName("范冰冰经纪人");
             fbbManager.setEmail("fanbingbingManager@139.com");
             fbbManager.setPassword(password);
+            fbbManager.setOrganizeId(boss.getId());
             userService.addUser(fbbManager, manager);
 
             User fxgUser = new User();
@@ -115,6 +118,7 @@ public class InitServiceTest {
             fxgUser.setTrueName("冯小刚");
             fxgUser.setEmail("fengxiaogang@139.com");
             fxgUser.setPassword(password);
+            fxgUser.setOrganizeId(manager.getId());
             userService.addUser(fxgUser, common);
 
             User fbbUser = new User();
@@ -122,6 +126,7 @@ public class InitServiceTest {
             fbbUser.setTrueName("范冰冰");
             fbbUser.setEmail("fanbingbing@139.com");
             fbbUser.setPassword(password);
+            fbbUser.setOrganizeId(manager.getId());
             userService.addUser(fbbUser, common);
         } catch (Exception e) {
             e.printStackTrace();

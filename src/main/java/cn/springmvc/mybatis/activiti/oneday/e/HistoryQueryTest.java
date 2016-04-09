@@ -49,7 +49,8 @@ public class HistoryQueryTest {
         List<HistoricTaskInstance> list = processEngine.getHistoryService()// 与历史数据（历史表）相关的Service
             .createHistoricTaskInstanceQuery()// 创建历史任务实例查询
             .processInstanceId(processInstanceId)//
-            .orderByHistoricTaskInstanceStartTime().asc().list();
+            // .orderByHistoricTaskInstanceStartTime().asc().list();
+            .asc().list();
         if (list != null && list.size() > 0) {
             for (HistoricTaskInstance hti : list) {
                 System.out.println(hti.getId() + "    " + hti.getName() + "    " + hti.getProcessInstanceId() + "   " + hti.getStartTime() + "   " + hti.getEndTime() + "   " + hti.getDurationInMillis());

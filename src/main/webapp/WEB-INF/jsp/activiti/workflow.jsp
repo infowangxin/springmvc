@@ -13,15 +13,6 @@
 <script src="<c:url value='/static/jquery/ui/jquery-ui.custom.min.js?${version_js}'/>" type="text/javascript"></script>
 <script src="<c:url value='/static/jquery/ui/jquery.ui.datepicker.min.js?${version_js}'/>" type="text/javascript"></script>
 <script src="<c:url value='/static/jquery/ui/i18n/jquery.ui.datepicker-zh-CN.min.js?${version_js}'/>" type="text/javascript"></script>
-<script type="text/javascript">
-  var _ctx = '${ctx}';
-  $(function() {
-    $("#leaveBillInput").click(function() {
-      document.location.href = _ctx + "/activiti/input";
-    });
-  });
-</script>
-
 </head>
 <body>
 
@@ -52,7 +43,7 @@
 	</div>
 
 
-	<div class="panel panel-info">
+	<div class="panel panel-primary">
 		<!-- Default panel contents -->
 		<div class="panel-heading">流程定义信息列表</div>
 		<table class="table table-condensed">
@@ -86,17 +77,28 @@
 	</div>
 
 
-	<div class="panel panel-default">
+	<div class="panel panel-primary">
 		<!-- Default panel contents -->
 		<div class="panel-heading">部署流程定义</div>
-		<form class="form-inline" role="form" action="${ctx }/activiti/newdeploy" method="post" enctype="multipart/form-data">
+		<br/>
+		<form class="form-horizontal" action="${ctx }/activiti/newdeploy" method="post" enctype="multipart/form-data">
 			<div class="form-group">
-				<label for="filename">流程名称</label> <input type="text" class="form-control" id="processDefinitionName" name="processDefinitionName">
+				<label for="filename" class="col-sm-1 control-label">流程名称:</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="processDefinitionName" name="processDefinitionName" placeholder="流程名称">
+				</div>
 			</div>
 			<div class="form-group">
-				<label for="file">流程文件</label> <input type="file" id="bpmnZip" name="bpmnZip">
+				<label for="bpmnZip" class="col-sm-1 control-label">流程文件:</label>
+				<div class="col-sm-3">
+					<input type="file" id="bpmnZip" name="bpmnZip" placeholder="流程文件">
+				</div>
 			</div>
-			<button type="submit" class="btn btn-default">上传流程</button>
+			<div class="form-group">
+				<div class="col-sm-offset-1 col-sm-3">
+					<button type="submit" class="btn btn-default">上传流程</button>
+				</div>
+			</div>
 		</form>
 	</div>
 </body>

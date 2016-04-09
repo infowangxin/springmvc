@@ -1,4 +1,4 @@
-/** Ò³Ãæ²¼¾Ö **/
+/** Ò³ï¿½æ²¼ï¿½ï¿½ **/
 body {
 	padding-top: 70px;
 	padding-bottom: 30px;
@@ -14,13 +14,9 @@ body {
 	margin: 5px 0;
 }
 
-#content {
-	min-height: 500px;
-}
+/** Ò³ï¿½æ²¼ï¿½ï¿½  the end **/
 
-/** Ò³Ãæ²¼¾Ö  the end **/
-
-/** ·ÖÒ³ **/
+/** ï¿½ï¿½Ò³ **/
 .pagingFrom>li>a,.pagingFrom>li>span {
 	color: #000000;
 }
@@ -54,7 +50,7 @@ body {
 	margin: 0 3px;
 }
 
-/** ·ÖÒ³  the end **/
+/** ï¿½ï¿½Ò³  the end **/
 
 /** ------- CSS------------------- **/
 .col-sm-0 {

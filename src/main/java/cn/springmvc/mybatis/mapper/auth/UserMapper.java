@@ -2,6 +2,8 @@ package cn.springmvc.mybatis.mapper.auth;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import cn.springmvc.mybatis.entity.auth.User;
 import cn.springmvc.mybatis.mapper.BaseMapper;
 
@@ -50,5 +52,14 @@ public interface UserMapper extends BaseMapper<String, User> {
      * @return
      */
     public List<User> findEmp(String roleCode,Integer status, String shopId, String empName);
+
+     /**
+     * 根据用户名查询用户
+     *
+     * @param username
+     *            用户名
+     * @return user 用户
+     */
+    public List<User> findUserByRoleCode(@Param("roleCode") String username);
 
 }

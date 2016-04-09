@@ -1,6 +1,6 @@
 package cn.springmvc.mybatis.web.util;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.apache.shiro.SecurityUtils;
 import org.slf4j.Logger;
@@ -48,7 +48,7 @@ public class WebUtil {
      * @return
      * @throws BopException
      */
-    public static Collection<Role> getRoles() throws BusinessException {
+    public static List<Role> getRoles() throws BusinessException {
         Principal principal = (Principal) SecurityUtils.getSubject().getPrincipal();
         if (principal == null) {
             log.error("## user don't login . user is null.");
@@ -59,7 +59,9 @@ public class WebUtil {
 
     public static boolean hasManager() throws BusinessException {
         try {
-            if (SecurityUtils.getSubject().hasRole(Constants.ROLE_MANAGER_CODE) || SecurityUtils.getSubject().hasRole(Constants.COMMON_ROLE_CODE)) {
+            if (SecurityUtils.getSubject().hasRole(Constants.ROLE_MANAGER_CODE)) {
+                return true;
+            } else if (SecurityUtils.getSubject().hasRole(Constants.ROLE_BOSS_CODE)) {
                 return true;
             } else {
                 return false;

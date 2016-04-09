@@ -109,9 +109,9 @@ public class ProcessVariablesTest {
     /** 模拟设置和获取流程变量的场景 */
     public void setAndGetVariables() {
         /** 与流程实例，执行对象（正在执行） */
-        RuntimeService runtimeService = processEngine.getRuntimeService();
+        // RuntimeService runtimeService = processEngine.getRuntimeService();
         /** 与任务（正在执行） */
-        TaskService taskService = processEngine.getTaskService();
+        // TaskService taskService = processEngine.getTaskService();
 
         /** 设置流程变量 */
         // runtimeService.setVariable(executionId, variableName, value)//表示使用执行对象ID，和流程变量的名称，设置流程变量的值（一次只能设置一个值）

@@ -32,7 +32,7 @@ public class User implements BaseEntity<String> {
     /** 状态 **/
     private Integer status;
 
-    /** 组织ID **/
+    /** 工作流审批的组织ID **/
     private String organizeId;
 
     /** 创建时间 **/

@@ -1,4 +1,4 @@
-package cn.springmvc.mybatis.service.activiti;
+package cn.springmvc.mybatis.service.workflow;
 
 import java.io.InputStream;
 import java.util.List;
@@ -71,13 +71,6 @@ public interface ActivitiService {
     public void saveNewDeploye(byte[] bytes, String filename);
 
     /**
-     * 获取部署对象ID
-     * 
-     * @return
-     */
-    public String getDeploymentId();
-
-    /**
      * 使用部署对象ID，删除流程定义
      * 
      * @param deploymentId
@@ -98,7 +91,7 @@ public interface ActivitiService {
      * 
      * @param workflowBean
      */
-    public void saveStartProcess(WorkflowBean workflowBean,User user);
+    public void saveStartProcess(WorkflowBean workflowBean, User user);
 
     /**
      * 使用当前用户名查询正在执行的任务表，获取当前任务的集合List<Task>
@@ -170,5 +163,8 @@ public interface ActivitiService {
      * @return
      */
     public List<Comment> findCommentByLeaveBillId(Long leaveBillId);
+
+    /** 查询当前人的组任务 */
+    public List<Task> findGroupTaskByUserId(String userId);
 
 }

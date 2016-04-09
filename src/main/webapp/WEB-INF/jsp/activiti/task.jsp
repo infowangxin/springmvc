@@ -19,11 +19,10 @@
 
 
 	<div class="panel panel-primary">
-		<!-- Default panel contents -->
 		<div class="panel-heading">个人任务管理列表</div>
 		<table class="table table-condensed">
 			<thead>
-				<tr>
+				<tr class="success">
 					<th>任务ID</th>
 					<th>任务名称</th>
 					<th>创建时间</th>
@@ -36,9 +35,9 @@
 					<tr>
 						<td>${dep.id }</td>
 						<td>${dep.name }</td>
-						<td><fmt:formatDate value="${dep.deploymentTime}" type="both" /></td>
-						<td>${dep.deploymentTime}</td>
-						<td><a href="${ctx }/activiti/delDeployment?deploymentId=${dep.id }">删除</a></td>
+						<td><fmt:formatDate value="${dep.createTime}" type="both" /></td>
+						<td>${dep.assignee}</td>
+						<td><a href="${ctx}/activiti/viewTaskForm?taskId=${dep.id }">办理任务</a> <a target="_blank" href="${ctx}/activiti/viewCurrentImage?taskId=${dep.id }">查看当前流程图</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -65,6 +65,12 @@
 		]]>
 	</select>
 	
+	<select id="findUserByRoleCode" parameterType="string"  resultMap="userMap">
+		select u.id , u.create_time , u.email , u.last_login_time ,  u.modify_time , u.`name` , u.organize_id , u.`password` , u.salt , u.`status` , u.true_name 
+		from t_sys_user u, t_sys_role r, t_sys_user_role ur
+		where u.id=ur.user_id and r.id=ur.role_id and r.code=#{roleCode}
+	</select>
+	
 	<select id="findEmp" parameterType="string" resultMap="userMap">
 		<include refid="find_xxx" />
 		<![CDATA[

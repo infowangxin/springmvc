@@ -66,7 +66,7 @@
 									<a href="${ctx }/activiti/viewHisComment?id=${lb.id }">查看审核记录</a>
 								</c:when>
 								<c:otherwise>
-									<a href="${ctx }/activiti/delete.action?id=${lb.id }“>删除</a>
+									<a href="${ctx }/activiti/delete?id=${lb.id }">删除</a>
 									<a href="${ctx }/activiti/viewHisComment?id=${lb.id }">查看审核记录</a>
 								</c:otherwise>
 							</c:choose></td>

@@ -1,4 +1,4 @@
-package cn.springmvc.mybatis.service.activiti.impl;
+package cn.springmvc.mybatis.service.workflow.impl;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import cn.springmvc.mybatis.entity.activiti.LeaveBill;
 import cn.springmvc.mybatis.mapper.activiti.LeaveBillMapper;
-import cn.springmvc.mybatis.service.activiti.LeaveBillService;
+import cn.springmvc.mybatis.service.workflow.LeaveBillService;
 
 @Service
 public class LeaveBillServiceImpl implements LeaveBillService {

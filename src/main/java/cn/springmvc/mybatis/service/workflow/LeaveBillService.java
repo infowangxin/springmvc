@@ -1,4 +1,4 @@
-package cn.springmvc.mybatis.service.activiti;
+package cn.springmvc.mybatis.service.workflow;
 
 import java.util.List;
 

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <html>
@@ -9,121 +10,62 @@
 <title>请假任务办理</title>
 </head>
 <body>
-	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-		<tr>
-			<td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<td height="24" bgcolor="#353c44"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-											<tr>
-												<td width="6%" height="19" valign="bottom"><div align="center">
-														<img src="${ctx }/images/tb.gif" width="14" height="14" />
-													</div></td>
-												<td width="94%" valign="bottom"><span class="STYLE1">请假申请的任务办理</span></td>
-											</tr>
-										</table></td>
-									<td><div align="right">
-											<span class="STYLE1"> </span>
-										</div></td>
-								</tr>
-							</table></td>
-					</tr>
-				</table></td>
-		</tr>
-		<tr>
-			<td>
-				<div align="left" class="STYLE21">
-					请假天数:
-					<textfield name="days" disabled="true" cssStyle="width: 200px;" />
-					<br /> 请假原因:
-					<textfield name="content" disabled="true" cssStyle="width: 800px;" />
-					<br /> 请假备注:
-					<textarea name="remark" disabled="true" cols="30" rows="2" />
-					<br /> <input type="button" name="button" value="返回" class="button_ok" onclick="javascript:history.go(-1);" />
+	<div class="panel panel-primary">
+		<div class="panel-heading">请假申请的任务办理</div>
+		<br/>
+		<form action="${ctx }/activiti/save" id="leaveBill" method="post" class="form-horizontal">
+			<div class="form-group">
+				<label for="title" class="col-sm-2 control-label">请假天数：</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" name="days" id="days" value="${leaveBill.days }" disabled="disabled"/>
 				</div>
-			</td>
-		</tr>
-	</table>
-	<hr>
-	<br>
-	<c:if test="${commentList!=null && commentList.size()>0 }">
-		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-			<tr>
-				<td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td height="24" bgcolor="#353c44"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-									<tr>
-										<td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-												<tr>
-													<td width="6%" height="19" valign="bottom"><div align="center">
-															<img src="${ctx }/images/tb.gif" width="14" height="14" />
-														</div></td>
-													<td width="94%" valign="bottom"><span class="STYLE1">显示请假申请的批注信息</span></td>
-												</tr>
-											</table></td>
-										<td><div align="right">
-												<span class="STYLE1"> </span>
-											</div></td>
-									</tr>
-								</table></td>
-						</tr>
-					</table></td>
-			</tr>
-			<tr>
-				<td><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce" onmouseover="changeto()" onmouseout="changeback()">
-						<tr>
-							<td width="15%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center">
-									<span class="STYLE10">时间</span>
-								</div></td>
-							<td width="10%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center">
-									<span class="STYLE10">批注人</span>
-								</div></td>
-							<td width="75%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center">
-									<span class="STYLE10">批注信息</span>
-								</div></td>
-						</tr>
-						<s:iterator value="#commentList">
-							<tr>
-								<td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center">
-										<s:date name="time" format="yyyy-MM-dd HH:mm:ss" />
-									</div></td>
-								<td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center">
-										<s:property value="userId" />
-									</div></td>
-								<td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center">
-										<s:property value="fullMessage" />
-									</div></td>
-							</tr>
-						</s:iterator>
+			</div>
+			<div class="form-group">
+				<label for="content" class="col-sm-2 control-label">请假原因：</label>
+				<div class="col-sm-3">
+					<textarea class="form-control" name="content" id="content" row="5" disabled="disabled">${leaveBill.content }</textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="remark" class="col-sm-2 control-label">请假备注：</label>
+				<div class="col-sm-3">
+					<textarea class="form-control" name="remark" id="remark" row="5" disabled="disabled">${leaveBill.remark }</textarea>
+				</div>
+			</div>
+			<div class="form-group input-group-sm">
+				<label class="col-sm-2 control-label">&nbsp;</label>
+				<div class="col-sm-3">
+					<button class="btn btn-default" type="button" onclick="javascript:history.go(-1);">返回</button>
+				</div>
+			</div>
+		</form>
+	</div>
 
-
-					</table></td>
-			</tr>
-		</table>
-	</c:if>
-	<s:else>
-		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-			<tr>
-				<td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<c:choose>
+		<c:when test="${(commentList)!= null && fn:length(commentList) > 0}">
+			<div class="panel panel-primary">
+				<div class="panel-heading">请假申请的任务办理</div>
+				<table class="table table-condensed">
+					<tr class="success">
+						<th>时间</th>
+						<th>批注人</th>
+						<th>批注信息</th>
+					</tr>
+					<c:forEach items="${commentList}" var="com">
 						<tr>
-							<td height="24" bgcolor="#F7F7F7"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-									<tr>
-										<td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-												<tr>
-													<td width="6%" height="19" valign="bottom"><div align="center">
-															<img src="${ctx }/images/tb.gif" width="14" height="14" />
-														</div></td>
-													<td width="94%" valign="bottom"><span><b>暂时没有批注信息</b></span></td>
-												</tr>
-											</table></td>
-									</tr>
-								</table></td>
+							<td><fmt:formatDate value="${com.time}" type="both" /></td>
+							<td>${com.userId }</td>
+							<td>${com.fullMessage }</td>
 						</tr>
-					</table></td>
-			</tr>
-		</table>
-	</s:else>
-
+					</c:forEach>
+				</table>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<div class="well">
+				<p class="text-success">暂时没有批注信息</p>
+			</div>
+		</c:otherwise>
+	</c:choose>
 </body>
 </html>
