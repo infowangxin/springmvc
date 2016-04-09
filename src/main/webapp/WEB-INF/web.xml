@@ -12,8 +12,8 @@
 			classpath*:spring/applicationContext.xml,
 			classpath*:spring/applicationContext-dao.xml,
 			classpath*:spring/applicationContext-shiro.xml,
-			classpath*:spring/applicationContext-schedule.xml,
-			classpath*:spring/applicationContext-activiti.xml
+			classpath*:spring/applicationContext-activiti.xml,
+			classpath*:spring/applicationContext-schedule.xml
 		</param-value>
 	</context-param>
 

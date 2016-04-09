@@ -6,6 +6,7 @@
 
 	<properties>
 		<!-- 日志备份目录 -->
+		<!-- <property name="BACKUP_HOME">{HOME:-./logs}</property> -->
 		<property name="BACKUP_HOME">./logs</property>
 		<property name="PROJECT_NAME">mvc</property>
 	</properties>
@@ -17,7 +18,7 @@
 		</Console>
 
 		<!-- 应用日志 -->
-		<RollingRandomAccessFile name="RollingLog" fileName="${BACKUP_HOME}/" filePattern="${BACKUP_HOME}/.%d{yyyy-MM-dd-HH}.log">
+		<RollingRandomAccessFile name="RollingLog" fileName="${BACKUP_HOME}/RollingLog" filePattern="${BACKUP_HOME}/RollingLog.%d{yyyy-MM-dd-HH}.log">
 			<PatternLayout pattern="[${PROJECT_NAME}]%date{yy/MM/dd HH:mm:ss.SSS} %-5level [%thread] %logger{15}(%line) - %msg%n" />
 			<Policies>
 				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
@@ -25,7 +26,7 @@
 		</RollingRandomAccessFile>
 
 		<!-- 单独业务日志 -->
-		<RollingRandomAccessFile name="BusinessLog" fileName="${BACKUP_HOME}/" filePattern="${BACKUP_HOME}/.%d{yyyy-MM-dd-HH}.log">
+		<RollingRandomAccessFile name="BusinessLog" fileName="${BACKUP_HOME}/BusinessLog" filePattern="${BACKUP_HOME}/BusinessLog.%d{yyyy-MM-dd-HH}.log">
 			<PatternLayout pattern="[${PROJECT_NAME}]%date{yy/MM/dd HH:mm:ss.SSS} %-5level [%thread] %logger{15}(%line) - %msg%n" />
 			<Policies>
 				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
@@ -52,8 +53,12 @@
 		<logger name="java.sql.PreparedStatement" level="debug" />
 
 		<!-- Business logger -->
+		<!-- 日志单独输出，单独输出到Businesslog文件当中，也在其它日志文件当中体现 -->
+		<!-- 在类里面采用这种声明方式：private static final Logger log = LoggerFactory.getLogger("cn.springmvc.mybatis.service"); -->
 		<logger name="cn.springmvc.mybatis.service" level="info" additivity="false">
 			<appender-ref ref="BusinessLog" />
+			<appender-ref ref="RollingLog" />
+			<appender-ref ref="Console" />
 		</logger>
 
 		<!-- Root Logger -->
