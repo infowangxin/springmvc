@@ -5,7 +5,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 
 	<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
 		<property name="jdbcDriver" value="com.mysql.jdbc.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/longfor_crm?useUnicode=true&amp;characterEncoding=utf8" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/wangxin?useUnicode=true&amp;characterEncoding=utf8" />
 		<property name="jdbcUsername" value="root" />
 		<property name="jdbcPassword" value="root" />
 		<property name="databaseSchemaUpdate" value="true" />
