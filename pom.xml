@@ -16,8 +16,8 @@
 		<spring.version>4.2.5.RELEASE</spring.version>
 
 		<!-- mybatis -->
-		<mybatis.version>3.2.3</mybatis.version>
-		<mybatis-spring.version>1.2.1</mybatis-spring.version>
+		<mybatis.version>3.3.1</mybatis.version>
+		<mybatis-spring.version>1.2.5</mybatis-spring.version>
 
 		<!-- log -->
 		<slf4j.version>1.7.21</slf4j.version>
@@ -26,11 +26,9 @@
 		<!-- apache -->
 		<httpcore.version>4.4</httpcore.version>
 		<httpclient.version>4.3.6</httpclient.version>
-		<apache.poi.version>3.11</apache.poi.version>
-		<apache.shiro.version>1.2.2</apache.shiro.version>
+		<apache.shiro.version>1.2.4</apache.shiro.version>
 		<commons-lang3.version>3.3.2</commons-lang3.version>
 		<commons.io.version>2.4</commons.io.version>
-		<apache.ant.version>1.9.4</apache.ant.version>
 		<commons-collections.version>4.0</commons-collections.version>
 		<commons-pool2.version>2.3</commons-pool2.version>
 		<commons-codec.version>1.10</commons-codec.version>
@@ -48,11 +46,11 @@
 		<quartz.version>2.2.1</quartz.version>
 
 		<!-- jdbc -->
-		<mysql-connector-java.version>5.1.34</mysql-connector-java.version>
-		<sqlite.jdbc.version>3.8.7</sqlite.jdbc.version>
+		<mysql-connector-java.version>5.1.38</mysql-connector-java.version>
+		<sqlite.jdbc.version>3.8.11.2</sqlite.jdbc.version>
 
 		<!-- sitemesh -->
-		<sitemesh.version>3.0.0</sitemesh.version>
+		<sitemesh.version>3.0.1</sitemesh.version>
 
 		<!-- activiti -->
 		<activiti-version>5.18.0</activiti-version>
@@ -178,19 +176,19 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
-			<version>	1.0.16</version>
+			<version>1.0.18</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-core</artifactId>
-			<version>6.3.0.Final</version>
+			<version>6.4.0.Final</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-compiler</artifactId>
-			<version>6.3.0.Final</version>
+			<version>6.4.0.Final</version>
 		</dependency>
 
 		<!-- log4j2 and slf4j -->
@@ -242,12 +240,6 @@
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>${commons.io.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.ant</groupId>
-			<artifactId>ant</artifactId>
-			<version>${apache.ant.version}</version>
 		</dependency>
 
 		<dependency>
@@ -320,11 +312,11 @@
 		</dependency>
 
 		<!-- jdbc -->
-		<dependency>
-			<groupId>oracle</groupId>
-			<artifactId>ojdbc</artifactId>
-			<version>6</version>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>oracle</groupId> -->
+		<!-- <artifactId>ojdbc</artifactId> -->
+		<!-- <version>6</version> -->
+		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>mysql</groupId>

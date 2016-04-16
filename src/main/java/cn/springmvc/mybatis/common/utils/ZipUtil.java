@@ -13,21 +13,19 @@ import java.util.List;
 import java.util.zip.CRC32;
 import java.util.zip.CheckedOutputStream;
 import java.util.zip.Deflater;
+import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.tools.zip.ZipEntry;
-import org.apache.tools.zip.ZipOutputStream;
 
 /**
  * @author Vincent.wang
  *
  */
 public class ZipUtil {
-
-    private static final String charset = "GBK";
 
     public static boolean compress(List<File> files, String zipPath, boolean isDel) {
         if (StringUtils.isBlank(zipPath) || CollectionUtils.isEmpty(files)) {
@@ -38,9 +36,8 @@ public class ZipUtil {
             FileOutputStream stream = new FileOutputStream(zipPath);
             CheckedOutputStream checkedStream = new CheckedOutputStream(stream, new CRC32());// 使用指定校验和创建输出流
             ZipOutputStream zipStream = new ZipOutputStream(checkedStream);
-            zipStream.setEncoding(charset);// 支持中文
             BufferedOutputStream out = new BufferedOutputStream(zipStream);
-            // zipStream.setComment("上传题附件"); // 设置压缩包注释
+            zipStream.setComment("共计" + files.size() + "个文件"); // 设置压缩包注释
             zipStream.setMethod(ZipOutputStream.DEFLATED);// 启用压缩
             zipStream.setLevel(Deflater.BEST_COMPRESSION);// 压缩级别为最强压缩，但时间要花得多一点
 
