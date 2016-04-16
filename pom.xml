@@ -13,7 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- spring -->
-		<spring.version>4.1.5.RELEASE</spring.version>
+		<spring.version>4.2.5.RELEASE</spring.version>
 
 		<!-- mybatis -->
 		<mybatis.version>3.2.3</mybatis.version>
