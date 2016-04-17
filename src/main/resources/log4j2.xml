@@ -18,7 +18,7 @@
 		</Console>
 
 		<!-- 应用日志 -->
-		<RollingRandomAccessFile name="RollingLog" fileName="${BACKUP_HOME}/RollingLog" filePattern="${BACKUP_HOME}/RollingLog.%d{yyyy-MM-dd-HH}.log">
+		<RollingRandomAccessFile name="RollingLog" fileName="${BACKUP_HOME}/Rolling.log" filePattern="${BACKUP_HOME}/Rolling.%d{yyyy-MM-dd-HH}.log">
 			<PatternLayout pattern="[${PROJECT_NAME}]%date{yy/MM/dd HH:mm:ss.SSS} %-5level [%thread] %logger{15}(%line) - %msg%n" />
 			<Policies>
 				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
@@ -26,12 +26,18 @@
 		</RollingRandomAccessFile>
 
 		<!-- 单独业务日志 -->
-		<RollingRandomAccessFile name="BusinessLog" fileName="${BACKUP_HOME}/BusinessLog" filePattern="${BACKUP_HOME}/BusinessLog.%d{yyyy-MM-dd-HH}.log">
+		<RollingRandomAccessFile name="BusinessLog" fileName="${BACKUP_HOME}/Business.log" filePattern="${BACKUP_HOME}/Business.%d{yyyy-MM-dd-HH}.log">
 			<PatternLayout pattern="[${PROJECT_NAME}]%date{yy/MM/dd HH:mm:ss.SSS} %-5level [%thread] %logger{15}(%line) - %msg%n" />
 			<Policies>
 				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
 			</Policies>
 		</RollingRandomAccessFile>
+		
+		<!-- 日志输出到mongodb -->
+		<NoSql name="databaseAppender">
+			<!-- <MongoDb databaseName="test" collectionName="logData" server="127.0.0.1" port="27017" userName="root" password="password" /> -->
+			<MongoDb databaseName="test" collectionName="logData" server="127.0.0.1" port="27017" />
+		</NoSql>
 	</appenders>
 
 	<loggers>
@@ -45,6 +51,9 @@
 		<logger name="org.quartz" level="info" />
 		<logger name="com.google.code.yanf4j" level="info" />
 		<logger name="net.rubyeye.xmemcached" level="info" />
+
+		<!-- 因为开始日志输出到mongo ， 所以它走error级别 -->
+		<logger name="org.mongodb" level="error" />
 
 		<!-- mybatis sql log -->
 		<logger name="org.apache.ibatis.jdbc.ScriptRunner" level="debug" />
@@ -65,6 +74,7 @@
 		<root level="debug">
 			<appender-ref ref="Console" />
 			<appender-ref ref="RollingLog" />
+			<appender-ref ref="databaseAppender" />
 		</root>
 
 	</loggers>

@@ -22,6 +22,7 @@
 		<!-- log -->
 		<slf4j.version>1.7.21</slf4j.version>
 		<log4j.version>2.5</log4j.version>
+		<!-- <log4mongo-java.version>0.7.4</log4mongo-java.version> -->
 
 		<!-- apache -->
 		<httpcore.version>4.4</httpcore.version>
@@ -48,6 +49,7 @@
 		<!-- jdbc -->
 		<mysql-connector-java.version>5.1.38</mysql-connector-java.version>
 		<sqlite.jdbc.version>3.8.11.2</sqlite.jdbc.version>
+		<mongodb-driver.version>3.2.2</mongodb-driver.version>
 
 		<!-- sitemesh -->
 		<sitemesh.version>3.0.1</sitemesh.version>
@@ -209,6 +211,12 @@
 			<artifactId>log4j-slf4j-impl</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-nosql</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -328,6 +336,12 @@
 			<groupId>org.xerial</groupId>
 			<artifactId>sqlite-jdbc</artifactId>
 			<version>${sqlite.jdbc.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-driver</artifactId>
+			<version>${mongodb-driver.version}</version>
 		</dependency>
 
 		<!-- sitemesh -->
