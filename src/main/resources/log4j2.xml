@@ -35,8 +35,8 @@
 		
 		<!-- 日志输出到mongodb -->
 		<NoSql name="databaseAppender">
-			<!-- <MongoDb databaseName="test" collectionName="logData" server="127.0.0.1" port="27017" userName="root" password="password" /> -->
-			<MongoDb databaseName="test" collectionName="logData" server="127.0.0.1" port="27017" />
+			<!-- <MongoDb databaseName="mvc" collectionName="business" server="127.0.0.1" port="27017" userName="root" password="password" /> -->
+			<MongoDb databaseName="mvc" collectionName="business" server="127.0.0.1" port="27017" />
 		</NoSql>
 	</appenders>
 
