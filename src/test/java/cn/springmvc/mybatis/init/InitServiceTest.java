@@ -154,6 +154,8 @@ public class InitServiceTest {
             roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.news);
             roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.newsadd);
             roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.news_search);
+            roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.im);
+            roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.openfire);
 
             // 管理员
             roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.leaveBill);
@@ -173,6 +175,8 @@ public class InitServiceTest {
             roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.news);
             roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.newsadd);
             roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.news_search);
+            roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.im);
+            roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.openfire);
 
             // 普通用户
             roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.leaveBill);
@@ -190,6 +194,8 @@ public class InitServiceTest {
             roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.news);
             roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.newsadd);
             roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.news_search);
+            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.im);
+            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.openfire);
         } catch (Exception e) {
             e.printStackTrace();
         }
