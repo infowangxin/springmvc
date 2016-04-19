@@ -71,7 +71,7 @@ public class MenuUtil implements Serializable {
         permis.add(initPermission("新增列表", news_search, Constants.STATUS_VALID, "news/search", 403, news));
         
         permis.add(initPermission("IM", im, Constants.STATUS_VALID, null, 501, im));
-        permis.add(initPermission("Openfire", openfire, Constants.STATUS_VALID, "im/openfire", 502, openfire));
+        permis.add(initPermission("Openfire", openfire, Constants.STATUS_VALID, "im/openfire", 502, im));
 
         return permis;
     }

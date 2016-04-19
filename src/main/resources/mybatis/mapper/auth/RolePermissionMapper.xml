@@ -38,7 +38,7 @@
 		WHERE ID=#{id}
 	</select>
 
-	<select id="findRolePermission" parameterType="int" resultMap="rolePermissionMap">
+	<select id="findRolePermission" parameterType="cn.springmvc.mybatis.entity.auth.RolePermission" resultMap="rolePermissionMap">
 		<include refid="find_xxx" />
 		<include refid="from_xxx" />
 		WHERE ROLE_ID=#{roleId} and PERMISSION_ID=#{permissionId}

@@ -44,11 +44,12 @@
 		<!-- 3rdparty Loggers -->
 		<logger name="cn.springmvc" level="debug" />
 		<logger name="org.activiti" level="debug" />
-		<logger name="net.spy.memcached" level="debug" />
-		<logger name="org.springframework" level="info" />
-		<logger name="org.hibernate" level="info" />
-		<logger name="org.apache" level="info" />
-		<logger name="org.quartz" level="info" />
+		<logger name="net.spy.memcached" level="error" />
+		<logger name="org.springframework" level="error" />
+		<logger name="org.apache" level="error" />
+		<logger name="org.activiti" level="error" />
+		<logger name="org.quartz" level="error" />
+		<logger name="org.mybatis" level="info" />
 		<logger name="com.google.code.yanf4j" level="info" />
 		<logger name="net.rubyeye.xmemcached" level="info" />
 
