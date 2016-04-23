@@ -105,7 +105,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUserByName(String username) {
-        return userMapper.findUserByName(username);
+        try {
+            return userMapper.findUserByName(username);
+        } catch (Exception e) {
+            log.error("# 根据账号查询用户报错 , username={}", username);
+            throw new BusinessException("1001", "查询用户失败");
+        }
     }
 
     @Override

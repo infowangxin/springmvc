@@ -16,13 +16,13 @@
 		<spring.version>4.2.5.RELEASE</spring.version>
 
 		<!-- mybatis -->
-		<mybatis.version>3.3.1</mybatis.version>
+		<mybatis.version>3.2.3</mybatis.version>
+		<!-- <mybatis.version>3.4.0</mybatis.version> -->
 		<mybatis-spring.version>1.2.5</mybatis-spring.version>
 
 		<!-- log -->
 		<slf4j.version>1.7.21</slf4j.version>
 		<log4j.version>2.5</log4j.version>
-		<!-- <log4mongo-java.version>0.7.4</log4mongo-java.version> -->
 
 		<!-- apache -->
 		<httpcore.version>4.4</httpcore.version>
@@ -211,7 +211,7 @@
 			<artifactId>log4j-slf4j-impl</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-nosql</artifactId>

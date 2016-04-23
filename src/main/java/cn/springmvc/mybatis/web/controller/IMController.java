@@ -22,5 +22,19 @@ public class IMController {
     }
     
     
+    @RequestMapping("/simpleclient")
+    public String simpleclient(){
+        log.info("# 进入simpleclient页面");
+        return "im/simpleclient";
+    }
+    
+    
+    @RequestMapping("/simpleCrossDomainClient")
+    public String simpleCrossDomainClient(){
+        log.info("# 进入simpleCrossDomainClient页面");
+        return "im/simpleCrossDomainClient";
+    }
+    
+    
 
 }

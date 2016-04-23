@@ -12,12 +12,15 @@
 </head>
 
 <body>
-	<div class="row">
-		<div class="jumbotron">
-			<ul>
-				<li>openfire聊天</li>
-			</ul>
+	<form:form class="form-horizontal">
+		<div class="form-group">
+			<div class="col-sm-2">
+				<button class="btn btn-default" type="button" onclick="window.location.href='${ctx}/im/simpleclient'">simpleclient.html</button>
+			</div>
+			<div class="col-sm-2">
+				<button class="btn btn-default" type="button" onclick="window.location.href='${ctx}/im/simpleCrossDomainClient'">simpleCrossDomainClient.html</button>
+			</div>
 		</div>
-	</div>
+	</form:form>
 </body>
 </html>

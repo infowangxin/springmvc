@@ -111,15 +111,20 @@ public class ActivitiController {
      */
     @RequestMapping(value = "deployHome")
     public String deployHome(Model model) {
-        log.debug("## 部署管理首页显示");
-        // 1:查询部署对象信息，对应表（act_re_deployment）
-        List<Deployment> depList = activitiService.findDeploymentList();
-        // 2:查询流程定义的信息，对应表（act_re_procdef）
-        List<ProcessDefinition> pdList = activitiService.findProcessDefinitionList();
-        // 放置到上下文对象中
-        model.addAttribute("depList", depList);
-        model.addAttribute("pdList", pdList);
-        return "activiti/workflow";
+        try {
+            log.debug("## 部署管理首页显示");
+            // 1:查询部署对象信息，对应表（act_re_deployment）
+            List<Deployment> depList = activitiService.findDeploymentList();
+            // 2:查询流程定义的信息，对应表（act_re_procdef）
+            List<ProcessDefinition> pdList = activitiService.findProcessDefinitionList();
+            // 放置到上下文对象中
+            model.addAttribute("depList", depList);
+            model.addAttribute("pdList", pdList);
+            return "activiti/workflow";
+        } catch (Exception e) {
+            log.error("# 进入部署管理首页报错 , error message={}", e.getLocalizedMessage());
+            return "/common/404";
+        }
     }
 
     /**
