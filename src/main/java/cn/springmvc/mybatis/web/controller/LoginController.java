@@ -34,6 +34,7 @@ public class LoginController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginGet(@ModelAttribute("userCommand") UserCommand userCommand, BindingResult result) {
+        log.info("# 进入登录页面...");
         Subject subject = SecurityUtils.getSubject();
         if (!subject.isAuthenticated()) {
             log.error("# 非法登录系统，请先登录。");
@@ -57,6 +58,7 @@ public class LoginController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String loginPost(@ModelAttribute("userCommand") UserCommand userCommand, BindingResult result) {
+        log.info("# 用户登录操作 ...");
         Subject subject = SecurityUtils.getSubject();
 
         if (!subject.isAuthenticated()) {

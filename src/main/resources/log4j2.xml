@@ -32,12 +32,12 @@
 				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
 			</Policies>
 		</RollingRandomAccessFile>
-		
+
 		<!-- 日志输出到mongodb -->
-		<NoSql name="databaseAppender">
-			<!-- <MongoDb databaseName="mvc" collectionName="business" server="127.0.0.1" port="27017" userName="root" password="password" /> -->
-			<MongoDb databaseName="mvc" collectionName="business" server="127.0.0.1" port="27017" />
-		</NoSql>
+		<!-- <NoSql name="databaseAppender"> -->
+		<!-- <MongoDb databaseName="mvc" collectionName="business" server="127.0.0.1" port="27017" userName="root" password="password" /> -->
+		<!-- <MongoDb databaseName="mvc" collectionName="business" server="127.0.0.1" port="27017" /> -->
+		<!-- </NoSql> -->
 	</appenders>
 
 	<loggers>
@@ -75,7 +75,7 @@
 		<root level="debug">
 			<appender-ref ref="Console" />
 			<appender-ref ref="RollingLog" />
-			<appender-ref ref="databaseAppender" />
+			<!-- <appender-ref ref="databaseAppender" /> -->
 		</root>
 
 	</loggers>

@@ -57,7 +57,7 @@ body {
 <body>
 
 	<div class="container">
-		<form:form action="${ctx }/login.htm" cssClass="form-signin" modelAttribute="userCommand" method="POST">
+		<form:form action="${ctx }/login" cssClass="form-signin" modelAttribute="userCommand" method="POST">
 			<h3 class="form-signin-heading">请登录</h3>
 			<input type="text" class="form-control input-block-level" id="username" name="username" placeholder="用户" value="fbb">
 			<input type="password" class="form-control input-block-level" id="password" name="password" placeholder="密码" value="123456">
