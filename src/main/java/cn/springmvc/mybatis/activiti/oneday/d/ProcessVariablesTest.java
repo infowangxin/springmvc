@@ -3,6 +3,8 @@ package cn.springmvc.mybatis.activiti.oneday.d;
 import java.io.InputStream;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngines;
 import org.activiti.engine.RepositoryService;
@@ -21,7 +23,9 @@ public class ProcessVariablesTest {
     private static final Logger log = LoggerFactory.getLogger(ProcessVariablesTest.class);
 
     // 工作流引擎对象
-    ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();// 这行代码默认加载activiti.cfg.xml
+    // ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();// 这行代码默认加载activiti.cfg.xml
+    @Resource
+    private ProcessEngine processEngine;
 
     // 部署流程定义
     @Test

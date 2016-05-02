@@ -14,10 +14,10 @@
 	</context:component-scan>
 
 	<!-- 使用缓存mvc注解配置 -->
-	<mvc:annotation-driven/>
+	<mvc:annotation-driven />
 
 	<mvc:resources location="/static/" mapping="/static/**" />
-	<mvc:resources location="/favicon.ico" mapping="/favicon.ico"/>
+	<mvc:resources location="/favicon.ico" mapping="/favicon.ico" />
 
 	<mvc:view-controller path="/" view-name="redirect:/index" />
 
