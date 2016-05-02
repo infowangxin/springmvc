@@ -12,7 +12,6 @@ import java.util.zip.ZipInputStream;
 import javax.annotation.Resource;
 
 import org.activiti.engine.ProcessEngine;
-import org.activiti.engine.ProcessEngines;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.DeploymentBuilder;
