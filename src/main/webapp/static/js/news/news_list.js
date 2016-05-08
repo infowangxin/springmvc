@@ -2,14 +2,14 @@
 (function($, window, document, undefined) {
 
   function search() {
-    
+
     $("#newsBody").empty();
-    
+
     var keywords = $("#keywords").val();
 
     $.ajax({
       type: "post",
-      url: _ctx + "/news/search",
+      url: _ctx + "/news/list",
       dataType: 'json',
       data: {
         "keywords": keywords

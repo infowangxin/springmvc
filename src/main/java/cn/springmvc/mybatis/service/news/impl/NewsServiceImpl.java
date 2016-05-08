@@ -1,16 +1,19 @@
-package cn.springmvc.mybatis.service.auth.impl;
+package cn.springmvc.mybatis.service.news.impl;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cn.springmvc.mybatis.common.base.model.Page;
 import cn.springmvc.mybatis.common.utils.UUIDUtil;
-import cn.springmvc.mybatis.entity.auth.News;
 import cn.springmvc.mybatis.entity.auth.User;
-import cn.springmvc.mybatis.mapper.auth.NewsMapper;
-import cn.springmvc.mybatis.service.auth.NewsService;
+import cn.springmvc.mybatis.entity.news.News;
+import cn.springmvc.mybatis.mapper.news.NewsMapper;
+import cn.springmvc.mybatis.service.news.NewsService;
 
 /**
  * @author Vincent.wang
@@ -35,6 +38,16 @@ public class NewsServiceImpl implements NewsService {
     @Override
     public List<News> findNewsByKeywords(String keywords) {
         return newsMapper.findNewsByKeywords(keywords);
+    }
+
+    @Override
+    public Page<News> findNewsByPage(Page<News> page, String keywords) {
+        Map<String, Object> param = new HashMap<String, Object>();
+        param.put("keywords", keywords);
+        page.setParamMap(param);
+        List<News> news = newsMapper.findNewsByPage(page);
+        page.setResultList(news);
+        return page;
     }
 
 }

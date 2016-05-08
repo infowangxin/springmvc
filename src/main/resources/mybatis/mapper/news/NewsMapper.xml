@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="cn.springmvc.mybatis.mapper.auth.NewsMapper">
+<mapper namespace="cn.springmvc.mybatis.mapper.news.NewsMapper">
 
-	<resultMap id="newsMap" type="cn.springmvc.mybatis.entity.auth.News">
+	<resultMap id="newsMap" type="cn.springmvc.mybatis.entity.news.News">
 		<result column="ID" property="id" />
 		<result column="ADDRESS" property="address" />
 		<result column="CREATE_TIME" property="createTime" />
@@ -12,8 +12,8 @@
 		<result column="TITLE" property="title" />
 		<result column="USER_ID" property="userId" />
 	</resultMap>
-	
-	<insert id="insert" parameterType="cn.springmvc.mybatis.entity.auth.News">
+
+	<insert id="insert" parameterType="cn.springmvc.mybatis.entity.news.News">
 		INSERT INTO T_NEWS(ID , ADDRESS , CREATE_TIME , DESCRIPTION , NEWS_TIME , TITLE , USER_ID)
 		VALUES(#{id} , #{address} , #{createTime} , #{description} , #{newsTime} , #{title} , #{userId})
 	</insert>
@@ -43,7 +43,7 @@
 			WHERE ID=#{id}
 		]]>
 	</select>
-	
+
 	<select id="findNewsByKeywords" parameterType="string" resultMap="newsMap">
 		<include refid="find_xxx" />
 		<include refid="from_xxx" />
@@ -52,7 +52,15 @@
 		</where>
 	</select>
 
-	<update id="update" parameterType="cn.springmvc.mybatis.entity.auth.News">
+	<select id="findNewsByPage" resultMap="newsMap">
+		<include refid="find_xxx" />
+		<include refid="from_xxx" />
+		<where>
+			<if test="paramMap.keywords != null and paramMap.keywords != ''"> title like '%${paramMap.keywords}%'</if>
+		</where>
+	</select>
+
+	<update id="update" parameterType="cn.springmvc.mybatis.entity.news.News">
 		UPDATE T_NEWS
 		<set>
 			<if test="address != null">

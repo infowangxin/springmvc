@@ -29,7 +29,7 @@ import com.sun.xml.internal.bind.marshaller.CharacterEscapeHandler;
  *
  */
 @SuppressWarnings("restriction")
-public class FormatFactory {
+public class XMLFormatUtil {
 
     private static final ObjectMapper MAPPER = new ObjectMapper();
 

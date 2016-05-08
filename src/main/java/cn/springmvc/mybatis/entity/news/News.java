@@ -1,4 +1,4 @@
-package cn.springmvc.mybatis.entity.auth;
+package cn.springmvc.mybatis.entity.news;
 
 import java.util.Date;
 

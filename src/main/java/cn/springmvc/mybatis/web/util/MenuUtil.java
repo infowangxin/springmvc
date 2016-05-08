@@ -65,8 +65,8 @@ public class MenuUtil implements Serializable {
         permis.add(initPermission("快速查询", jquery_search, Constants.STATUS_VALID, "jq", 302, search));
 
         permis.add(initPermission("新闻", news, Constants.STATUS_VALID, null, 401, news));
-        permis.add(initPermission("新增新闻", newsadd, Constants.STATUS_VALID, "news/add", 402, news));
-        permis.add(initPermission("新增列表", news_search, Constants.STATUS_VALID, "news/search", 403, news));
+        permis.add(initPermission("新增新闻", newsadd, Constants.STATUS_VALID, "news", 402, news));
+        permis.add(initPermission("新增列表", news_search, Constants.STATUS_VALID, "news/list", 403, news));
         
         return permis;
     }

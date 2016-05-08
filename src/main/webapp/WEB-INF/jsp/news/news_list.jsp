@@ -11,10 +11,9 @@
 <link href="<c:url value='/static/jquery/themes/base/jquery-ui.min.css?${version_css}'/>" rel="stylesheet" type="text/css" />
 
 <script src="<c:url value='/static/jquery/ui/jquery-ui.custom.min.js?${version_js}'/>" type="text/javascript"></script>
-<%-- <script src="<c:url value='/static/jquery/ui/jquery.ui.dialog.min.js?${version_js}'/>" type="text/javascript"></script> --%>
 <script src="<c:url value='/static/jquery/ui/jquery.ui.datepicker.min.js?${version_js}'/>" type="text/javascript"></script>
 <script src="<c:url value='/static/jquery/ui/i18n/jquery.ui.datepicker-zh-CN.min.js?${version_js}'/>" type="text/javascript"></script>
-<script src="${ctx}/static/js/news/search.js?${version_js}" type="text/javascript"></script>
+<script src="${ctx}/static/js/news/news_list.js?${version_js}" type="text/javascript"></script>
 </head>
 <body>
 
@@ -40,13 +39,7 @@
 				</tr>
 			</thead>
 			<tbody id="newsBody">
-				<c:forEach var="file" items="${files }" varStatus="cur">
-					<tr>
-						<td>${cur.index+1 }</td>
-						<td><a href="javascript:void(0);" class="downloadfile" data-file-path="${file.absolutePath }"><strong>${file.name }</strong></a></td>
-						<td><a href="javascript:void(0);" class="downloadzipfile" data-file-path="${file.absolutePath }"><strong>zip</strong></a></td>
-					</tr>
-				</c:forEach>
+
 			</tbody>
 		</table>
 	</div>

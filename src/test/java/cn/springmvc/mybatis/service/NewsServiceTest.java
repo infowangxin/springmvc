@@ -11,8 +11,9 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import cn.springmvc.mybatis.entity.auth.News;
-import cn.springmvc.mybatis.service.auth.NewsService;
+import cn.springmvc.mybatis.common.base.model.Page;
+import cn.springmvc.mybatis.entity.news.News;
+import cn.springmvc.mybatis.service.news.NewsService;
 
 /**
  * @author Vincent.wang
@@ -20,7 +21,7 @@ import cn.springmvc.mybatis.service.auth.NewsService;
  *         production为生产环境，development为测试环境
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:/spring/applicationContext.xml", "classpath:/spring/applicationContext-dao.xml", "classpath:/spring/applicationContext-shiro.xml","classpath:/spring/applicationContext-activiti.xml" })
+@ContextConfiguration(locations = { "classpath:/spring/applicationContext.xml", "classpath:/spring/applicationContext-dao.xml", "classpath:/spring/applicationContext-shiro.xml", "classpath:/spring/applicationContext-activiti.xml" })
 @ActiveProfiles("development")
 public class NewsServiceTest {
 
@@ -34,7 +35,20 @@ public class NewsServiceTest {
         try {
             List<News> news = newsService.findNewsByKeywords(null);
             for (News n : news) {
-                log.trace("# {} ,{} , {} ", n.getTitle(), n.getDescription(), n.getAddress());
+                log.debug("# {} ,{} , {} ", n.getTitle(), n.getDescription(), n.getAddress());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void findNewsByPage() {
+        try {
+            Page<News> page = new Page<News>();
+            page = newsService.findNewsByPage(page, null);
+            for (News n : page.getResultList()) {
+                log.debug("# {} ,{} , {} ", n.getTitle(), n.getDescription(), n.getAddress());
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -13,10 +13,10 @@
 <script src="<c:url value='/static/jquery/ui/jquery-ui.custom.min.js?${version_js}'/>" type="text/javascript"></script>
 <script src="<c:url value='/static/jquery/ui/jquery.ui.datepicker.min.js?${version_js}'/>" type="text/javascript"></script>
 <script src="<c:url value='/static/jquery/ui/i18n/jquery.ui.datepicker-zh-CN.min.js?${version_js}'/>" type="text/javascript"></script>
-<script src="${ctx}/static/js/news/add.js?${version_js}" type="text/javascript"></script>
+<script src="${ctx}/static/js/news/news.js?${version_js}" type="text/javascript"></script>
 </head>
 <body>
-	<form:form action="${ctx }/news/add" commandName="mewsCommand" id="newsForm" method="post" class="form-horizontal">
+	<form:form action="${ctx }/news" commandName="mewsCommand" id="newsForm" method="post" class="form-horizontal">
 		<div class="form-group">
 			<label for="title" class="col-sm-2 control-label">标题：</label>
 			<div class="col-sm-4">
