@@ -35,7 +35,7 @@ public class ProcessInstanceTest {
     // 部署流程定义
     @Test
     public void deploymentProcessDefinition_zip() {
-        InputStream in = this.getClass().getClassLoader().getResourceAsStream("diagrams/helloworld.zip");
+        InputStream in = this.getClass().getResourceAsStream("helloworld.zip");
         ZipInputStream zipInputStream = new ZipInputStream(in);
 
         // 主要是ACT_RE打头的表

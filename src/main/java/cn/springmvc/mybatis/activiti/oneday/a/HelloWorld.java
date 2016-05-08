@@ -1,5 +1,6 @@
 package cn.springmvc.mybatis.activiti.oneday.a;
 
+import java.io.InputStream;
 import java.util.List;
 
 import org.activiti.engine.ProcessEngine;
@@ -28,11 +29,15 @@ public class HelloWorld {
     @Test
     public void deploymentProcessDefinition() {
         RepositoryService repositoryService = processEngine.getRepositoryService();// 与流程定义部署对象相关的service
+        InputStream inputStreamBpmn = this.getClass().getResourceAsStream("sequenceFlow.bpmn");
+        InputStream inputStreamPng = this.getClass().getResourceAsStream("sequenceFlow.png");
 
         DeploymentBuilder deploymentBuilder = repositoryService.createDeployment();// 创建一个部署对象
-        deploymentBuilder.addClasspathResource("diagrams/helloworld.bpmn");// 从classpath的资源中加载，一次一个文件
         deploymentBuilder.name("helloworld入门程序");// 添加部署的名称
-        deploymentBuilder.addClasspathResource("diagrams/helloworld.png");// 从classpath的资源中加载，一次一个文件
+        deploymentBuilder.addInputStream("helloworld.bpmn", inputStreamBpmn);//
+        deploymentBuilder.addInputStream("helloworld.png", inputStreamPng);//
+        // deploymentBuilder.addClasspathResource("diagrams/helloworld.bpmn");// 从classpath的资源中加载，一次一个文件
+        // deploymentBuilder.addClasspathResource("diagrams/helloworld.png");// 从classpath的资源中加载，一次一个文件
 
         Deployment deployment = deploymentBuilder.deploy();// 部署完成
 
