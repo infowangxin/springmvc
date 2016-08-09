@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>springmvc-mybatis</groupId>
-	<artifactId>springmvc-mybatis</artifactId>
+	<groupId>springmvc</groupId>
+	<artifactId>springmvc</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
-	<name>wx-mybatis Maven Webapp</name>
+	<name>mybatis Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -13,7 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- spring -->
-		<spring.version>4.2.5.RELEASE</spring.version>
+		<spring.version>4.3.2.RELEASE</spring.version>
 
 		<!-- mybatis -->
 		<mybatis.version>3.2.3</mybatis.version>
