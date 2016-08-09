@@ -5,7 +5,7 @@
 	<artifactId>springmvc</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
-	<name>mybatis Maven Webapp</name>
+	<name>SpringMVC Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
