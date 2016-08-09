@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import cn.springmvc.mybatis.entity.auth.News;
-import cn.springmvc.mybatis.service.auth.NewsService;
+import cn.springmvc.mybatis.entity.news.News;
+import cn.springmvc.mybatis.service.news.NewsService;
 import cn.springmvc.mybatis.web.command.NewsCommand;
 import cn.springmvc.mybatis.web.util.WebUtil;
 import cn.springmvc.mybatis.web.validator.NewsValidator;
@@ -27,7 +27,6 @@ import cn.springmvc.mybatis.web.validator.NewsValidator;
  *
  */
 @Controller
-@RequestMapping("/news")
 public class NewsController {
 
     @Autowired
@@ -43,16 +42,16 @@ public class NewsController {
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/news", method = RequestMethod.GET)
     public String addNews() {
-        return "news/add";
+        return "news/news";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/news", method = RequestMethod.POST)
     public String add(@ModelAttribute("mewsCommand") NewsCommand command, BindingResult result) {
         new NewsValidator().validate(command, result);
         if (result.hasErrors()) {
-            return "news/add";
+            return "news/news";
         }
         News news = new News();
         news.setTitle(command.getTitle());
@@ -60,15 +59,15 @@ public class NewsController {
         news.setAddress(command.getAddress());
         news.setNewsTime(command.getNewsTime());
         newsService.addNews(news, WebUtil.getUser());
-        return "news/search";
+        return "news/news_list";
     }
 
-    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    @RequestMapping(value = "/news/list", method = RequestMethod.GET)
     public String search() {
-        return "news/search";
+        return "news/news_list";
     }
 
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @RequestMapping(value = "/news/list", method = RequestMethod.POST)
     @ResponseBody
     public List<News> search(@RequestParam(value = "keywords", required = false) String keywords) {
         return newsService.findNewsByKeywords(keywords);

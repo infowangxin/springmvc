@@ -24,7 +24,6 @@
 				<li>文件上传示例</li>
 				<li>文件下载示例</li>
 				<li>JQuery联想搜索示例</li>
-				<li>IM聊天</li>
 			</ul>
 		</div>
 	</div>

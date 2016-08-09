@@ -30,8 +30,8 @@ public class ProcessVariablesTest {
     @Test
     public void deploymentProcessDefinition_InputStream() {
         // InputStream
-        InputStream inputStreambpmn = this.getClass().getResourceAsStream("/diagrams/processVariables.bpmn");
-        InputStream inputStreampng = this.getClass().getResourceAsStream("/diagrams/processVariables.png");
+        InputStream inputStreambpmn = this.getClass().getResourceAsStream("processVariables.bpmn");
+        InputStream inputStreampng = this.getClass().getResourceAsStream("processVariables.png");
 
         // 主要是ACT_RE打头的表
         RepositoryService repositoryService = processEngine.getRepositoryService();// 与流程定义部署对象相关的service

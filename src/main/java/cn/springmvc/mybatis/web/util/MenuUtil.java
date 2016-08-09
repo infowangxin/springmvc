@@ -40,8 +40,6 @@ public class MenuUtil implements Serializable {
     public static final String news = "news";
     public static final String newsadd = "newsadd";
     public static final String news_search = "newssearch";
-    public static final String im = "im";
-    public static final String openfire = "openfire";
 
     public static List<Permission> importPermissionData() {
         List<Permission> permis = new ArrayList<Permission>();
@@ -67,12 +65,9 @@ public class MenuUtil implements Serializable {
         permis.add(initPermission("快速查询", jquery_search, Constants.STATUS_VALID, "jq", 302, search));
 
         permis.add(initPermission("新闻", news, Constants.STATUS_VALID, null, 401, news));
-        permis.add(initPermission("新增新闻", newsadd, Constants.STATUS_VALID, "news/add", 402, news));
-        permis.add(initPermission("新增列表", news_search, Constants.STATUS_VALID, "news/search", 403, news));
+        permis.add(initPermission("新增新闻", newsadd, Constants.STATUS_VALID, "news", 402, news));
+        permis.add(initPermission("新增列表", news_search, Constants.STATUS_VALID, "news/list", 403, news));
         
-        permis.add(initPermission("IM", im, Constants.STATUS_VALID, null, 501, im));
-        permis.add(initPermission("Openfire", openfire, Constants.STATUS_VALID, "im/openfire", 502, im));
-
         return permis;
     }
 
