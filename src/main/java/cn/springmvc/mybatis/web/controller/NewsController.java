@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import cn.springmvc.mybatis.entity.news.News;
-import cn.springmvc.mybatis.service.news.NewsService;
+import cn.springmvc.mybatis.entity.simple.News;
+import cn.springmvc.mybatis.service.simple.NewsService;
 import cn.springmvc.mybatis.web.command.NewsCommand;
 import cn.springmvc.mybatis.web.util.WebUtil;
 import cn.springmvc.mybatis.web.validator.NewsValidator;

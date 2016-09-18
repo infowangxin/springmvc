@@ -4,8 +4,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="zh-CN">
 <head>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <title>ajax file upload</title>
-<script type="text/javascript" src="<c:url value='/static/js/upload/ajaxfileupload.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/static/jquery/plugins/js/ajaxfileupload.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/static/js/upload/ajax.js'/>"></script>
 </head>
 <body>

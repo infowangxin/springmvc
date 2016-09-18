@@ -24,7 +24,7 @@ import cn.springmvc.mybatis.web.util.MenuUtil;
  *         production为生产环境，development为测试环境
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:/spring/applicationContext.xml", "classpath:/spring/applicationContext-dao.xml", "classpath:/spring/applicationContext-shiro.xml","classpath:/spring/applicationContext-activiti.xml" })
+@ContextConfiguration(locations = { "classpath:/spring/applicationContext.xml", "classpath:/spring/applicationContext-dao.xml", "classpath:/spring/applicationContext-shiro.xml", "classpath:/spring/applicationContext-activiti.xml" })
 @ActiveProfiles("development")
 public class InitServiceTest {
 
@@ -147,6 +147,7 @@ public class InitServiceTest {
             roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.upload);
             roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.ajaxupload);
             roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.springupload);
+            roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.import_excel);
             roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.download);
             roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.zipupload);
             roleService.addRolePermission(Constants.ROLE_BOSS_CODE, MenuUtil.search);
@@ -166,6 +167,7 @@ public class InitServiceTest {
             roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.upload);
             roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.ajaxupload);
             roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.springupload);
+            roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.import_excel);
             roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.download);
             roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.zipupload);
             roleService.addRolePermission(Constants.ROLE_MANAGER_CODE, MenuUtil.search);
@@ -183,6 +185,7 @@ public class InitServiceTest {
             roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.upload);
             roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.ajaxupload);
             roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.springupload);
+            roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.import_excel);
             roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.download);
             roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.zipupload);
             roleService.addRolePermission(Constants.COMMON_ROLE_CODE, MenuUtil.search);
@@ -196,7 +199,7 @@ public class InitServiceTest {
     }
 
     @Test
-    public void init() {
+    public void testInit() {
         try {
             addRoles();
             addPermission();

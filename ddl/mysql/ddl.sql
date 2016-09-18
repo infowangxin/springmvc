@@ -1,3 +1,11 @@
+drop table if exists t_news;
+drop table if exists t_sys_permission;
+drop table if exists t_sys_role;
+drop table if exists t_sys_role_permission;
+drop table if exists t_sys_user;
+drop table if exists t_sys_user_role;
+drop table if exists d_open_survey;
+drop table if exists t_import_excel;
 
 create table `d_open_survey` (
   `f_id` varchar(32) not null,
@@ -80,4 +88,16 @@ create table `t_sys_user_role` (
   `role_id` varchar(255) default null,
   `user_id` varchar(255) default null,
   primary key (`id`)
+) engine=innodb default charset=utf8;
+
+create table `t_import_excel` (
+  `id` varchar(32) primary key not null,
+  `user_name` varchar(255) default null,
+  `start_date` varchar(255) default null,
+  `end_date` varchar(255) default null,
+  `start_time` datetime default null,
+  `end_time` datetime default null,
+  `year` varchar(255) default null,
+  `remark` varchar(255) default null,
+  `is_modify` int(11) default null
 ) engine=innodb default charset=utf8;

@@ -33,6 +33,7 @@ public class MenuUtil implements Serializable {
     public static final String upload = "upload";
     public static final String ajaxupload = "ajaxupload";
     public static final String springupload = "springupload";
+    public static final String import_excel = "importexcel";
     public static final String download = "download";
     public static final String zipupload = "zipupload";
     public static final String search = "search";
@@ -54,6 +55,7 @@ public class MenuUtil implements Serializable {
         permis.add(initPermission("文件上传", upload, Constants.STATUS_VALID, null, 7, upload));
         permis.add(initPermission("ajax上传文件", ajaxupload, Constants.STATUS_VALID, "upload/ajax", 8, upload));
         permis.add(initPermission("spring上传文件", springupload, Constants.STATUS_VALID, "upload/spring", 9, upload));
+        permis.add(initPermission("Excel导入", import_excel, Constants.STATUS_VALID, "import/index", 10, upload));
 
         permis.add(initPermission("文件下载", download, Constants.STATUS_VALID, null, 101, download));
         permis.add(initPermission("zip下载", zipupload, Constants.STATUS_VALID, "download/zip", 102, download));
@@ -67,7 +69,7 @@ public class MenuUtil implements Serializable {
         permis.add(initPermission("新闻", news, Constants.STATUS_VALID, null, 401, news));
         permis.add(initPermission("新增新闻", newsadd, Constants.STATUS_VALID, "news", 402, news));
         permis.add(initPermission("新增列表", news_search, Constants.STATUS_VALID, "news/list", 403, news));
-        
+
         return permis;
     }
 

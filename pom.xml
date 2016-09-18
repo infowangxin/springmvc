@@ -27,6 +27,7 @@
 		<!-- apache -->
 		<httpcore.version>4.4</httpcore.version>
 		<httpclient.version>4.3.6</httpclient.version>
+		<apache.poi.version>3.14</apache.poi.version>
 		<apache.shiro.version>1.2.4</apache.shiro.version>
 		<commons-lang3.version>3.3.2</commons-lang3.version>
 		<commons.io.version>2.4</commons.io.version>
@@ -66,7 +67,7 @@
 		<aspectjweaver.version>1.8.4</aspectjweaver.version>
 
 		<!-- test -->
-		<junit.version>4.9</junit.version>
+		<junit.version>4.12</junit.version>
 
 	</properties>
 
@@ -236,6 +237,31 @@
 			<artifactId>shiro-ehcache</artifactId>
 			<version>${apache.shiro.version}</version>
 		</dependency>
+		
+		<!-- apache poi -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-scratchpad</artifactId>
+			<version>${apache.poi.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${apache.poi.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>xml-apis</groupId>
+					<artifactId>xml-apis</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>${apache.poi.version}</version>
+		</dependency>
 
 		<!-- apache commons -->
 		<dependency>
@@ -275,6 +301,12 @@
 		</dependency>
 
 		<!-- jackson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>

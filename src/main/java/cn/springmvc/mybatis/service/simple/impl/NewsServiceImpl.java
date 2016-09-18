@@ -1,4 +1,4 @@
-package cn.springmvc.mybatis.service.news.impl;
+package cn.springmvc.mybatis.service.simple.impl;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 import cn.springmvc.mybatis.common.base.model.Page;
 import cn.springmvc.mybatis.common.utils.UUIDUtil;
 import cn.springmvc.mybatis.entity.auth.User;
-import cn.springmvc.mybatis.entity.news.News;
-import cn.springmvc.mybatis.mapper.news.NewsMapper;
-import cn.springmvc.mybatis.service.news.NewsService;
+import cn.springmvc.mybatis.entity.simple.News;
+import cn.springmvc.mybatis.mapper.simple.NewsMapper;
+import cn.springmvc.mybatis.service.simple.NewsService;
 
 /**
  * @author Vincent.wang

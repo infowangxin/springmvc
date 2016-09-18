@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="cn.springmvc.mybatis.mapper.news.NewsMapper">
+<mapper namespace="cn.springmvc.mybatis.mapper.simple.NewsMapper">
 
-	<resultMap id="newsMap" type="cn.springmvc.mybatis.entity.news.News">
+	<resultMap id="newsMap" type="cn.springmvc.mybatis.entity.simple.News">
 		<result column="ID" property="id" />
 		<result column="ADDRESS" property="address" />
 		<result column="CREATE_TIME" property="createTime" />
@@ -13,7 +13,7 @@
 		<result column="USER_ID" property="userId" />
 	</resultMap>
 
-	<insert id="insert" parameterType="cn.springmvc.mybatis.entity.news.News">
+	<insert id="insert" parameterType="cn.springmvc.mybatis.entity.simple.News">
 		INSERT INTO T_NEWS(ID , ADDRESS , CREATE_TIME , DESCRIPTION , NEWS_TIME , TITLE , USER_ID)
 		VALUES(#{id} , #{address} , #{createTime} , #{description} , #{newsTime} , #{title} , #{userId})
 	</insert>
@@ -60,7 +60,7 @@
 		</where>
 	</select>
 
-	<update id="update" parameterType="cn.springmvc.mybatis.entity.news.News">
+	<update id="update" parameterType="cn.springmvc.mybatis.entity.simple.News">
 		UPDATE T_NEWS
 		<set>
 			<if test="address != null">

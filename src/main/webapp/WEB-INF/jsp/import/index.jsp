@@ -7,19 +7,25 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <title>spirng file upload</title>
 <script type="text/javascript" src="<c:url value='/static/jquery/plugins/js/ajaxfileupload.js'/>"></script>
-<script type="text/javascript" src="<c:url value='/static/js/upload/ajax.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/static/js/import/ajax.js'/>"></script>
+<script type="text/javascript">
+	var _ctx = "${ctx}";
+</script>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<form role="form" action="${ctx }/upload/spring" method="post" enctype="multipart/form-data">
-				<div class="form-group">
-					<label for="exampleInputFile">文件</label> <input type="file" id="uploadfile" name="uploadfile">
-					<p class="help-block">目前没有对文件类型进行限制</p>
-				</div>
-				<button type="submit" class="btn btn-default">上传</button>
-			</form>
-			${msg }
+			<img id="loading" src="${ctx }/static/images/loading.gif" style="display:none;">
+			<input type="file" id="uploadfile" name="uploadfile">
 		</div>
+		<br />
+		<div class="row">
+			<button type="button" class="btn btn-default" id="ajaxupload-btn">上传</button>
+		</div>
+		<div id="msg">
+		
+		</div>
+	</div>
+
 </body>
 </html>

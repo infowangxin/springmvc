@@ -1,10 +1,10 @@
-package cn.springmvc.mybatis.service.news;
+package cn.springmvc.mybatis.service.simple;
 
 import java.util.List;
 
 import cn.springmvc.mybatis.common.base.model.Page;
 import cn.springmvc.mybatis.entity.auth.User;
-import cn.springmvc.mybatis.entity.news.News;
+import cn.springmvc.mybatis.entity.simple.News;
 
 /**
  * @author Vincent.wang

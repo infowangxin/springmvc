@@ -12,8 +12,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import cn.springmvc.mybatis.common.base.model.Page;
-import cn.springmvc.mybatis.entity.news.News;
-import cn.springmvc.mybatis.service.news.NewsService;
+import cn.springmvc.mybatis.entity.simple.News;
+import cn.springmvc.mybatis.service.simple.NewsService;
 
 /**
  * @author Vincent.wang
