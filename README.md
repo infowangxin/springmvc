@@ -1,22 +1,19 @@
-# Spring MVC + Mybatis + Shiro + logback + Sitemesh3 + bootstrap3 简单框架
+# springmvc 介绍 #
 
-+ web.xml文件当中的spring.profiles.default可切换项目启动模式<br>
-development:以开发环境启动，采用SQLite数据库，production：以生产环境启动，采用MySQL数据库
+<pre>它是一个典型的MVC三层框架，快速简单的上手。</pre>
 
+#### springmvc
 
-#### 系统启动：
-+ 先要手动建表，脚本在doc/sql目录下
++ 包含框架有：SpringMVC、MyBaits、Apache Shiro、Bootstrap3、Sitemesh3、Activiti、log4j2；
++ 集成示例有：用户登录、文件上传下载、文件压缩、Excel导入、JQuery联想搜索、Activiti工作流；
 
-+ 系统采用Shiro权限框架，库表当中若无数据，则系统只能访问首页，无法进行登录<br/>
-执行InitServiceTest.init()方法初始化数据方法即可登录，注意InitServiceTest类中的@ActiveProfiles("")是不是你指的环境
+#### 示例启动
+  
++ 数据库选择，默认开启MySQL数据库，若改用Oracle，可在工程的<font color="blue">datasource.properties</font>数据源配置文件当中设置；
++ 启动工程；
++ 浏览器访问工程查看示例效果；
 
+欢迎[交流讨论](https://github.com/wangxinforme/springmvc/issues)
 
-### PS. Mybatis代码生成器
-+ mybatis的dao,model,mapper.xml文件可通过代码生成器生成简易代码
-+ 可参考[mybatis-generator](http://git.oschina.net/wangxinforme/mybatis-generator "Mybatis代码生成器")
-
-
-若发现问题或有疑问，欢迎大家[反馈](http://git.oschina.net/wangxinforme/springmvc-mybatis/issues)，相互交流
-
-Vincent [Git@OSC](http://git.oschina.net/wangxinforme "Vincent Git@OSC主页")
+<b>[胡桃夹子GitHub](https://github.com/wangxinforme "Vincent Git@OSC主页")</b>
 

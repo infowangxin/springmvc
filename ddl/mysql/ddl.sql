@@ -91,13 +91,13 @@ create table `t_sys_user_role` (
 ) engine=innodb default charset=utf8;
 
 create table `t_import_excel` (
-  `id` varchar(32) primary key not null,
-  `user_name` varchar(255) default null,
-  `start_date` varchar(255) default null,
-  `end_date` varchar(255) default null,
-  `start_time` datetime default null,
-  `end_time` datetime default null,
-  `year` varchar(255) default null,
-  `remark` varchar(255) default null,
-  `is_modify` int(11) default null
+  `id` varchar(32) primary key not null comment '主键',
+  `user_name` varchar(255) default null comment '员工名字',
+  `start_date` varchar(255) default null comment '开始日期',
+  `end_date` varchar(255) default null comment '结束日期',
+  `start_time` datetime default null comment '开始时间',
+  `end_time` datetime default null comment '结束时间',
+  `year` varchar(255) default null comment '月',
+  `remark` varchar(255) default null comment '备注',
+  `is_modify` int(11) default null comment '修改备注：1=补开始日期与开始时间；2=补结束日期与结束时间；3=再次补结束日期与结束时间；'
 ) engine=innodb default charset=utf8;

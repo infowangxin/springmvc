@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,23 +39,23 @@ public class ImportExcelServiceImpl implements ImportExcelService {
     public void toImport(InputStream stream) {
         try {
             log.info("#import excel data...");
-            // Workbook wb = new HSSFWorkbook(stream);//v.2007 office
-            Workbook wb = new XSSFWorkbook(stream);// v.2007+ office
+            Workbook wb = new HSSFWorkbook(stream);//v.2007 office
+            //Workbook wb = new XSSFWorkbook(stream);// v.2007+ office
             List<Map<String, ImportExcel>> list = new ArrayList<Map<String, ImportExcel>>();
             int sheetNum = wb.getNumberOfSheets();
             for (int sn = 0; sn < sheetNum; sn++) {
-                Sheet sheet = wb.getSheetAt(sn);// 获取当前sheet
-                String year = sheet.getSheetName();
+                Sheet sheet = wb.getSheetAt(sn);// 获取当前sheet 
+                String year = sheet.getSheetName();//把sheet名称当月份了
                 Map<String, ImportExcel> map = new LinkedHashMap<String, ImportExcel>();
                 int rows = sheet.getPhysicalNumberOfRows();// 获取总行号
                 if (rows > 0) {
                     for (int i = 1; i < rows; i++) {
                         Row row = sheet.getRow(i);
 
-                        String userName = ExcelUtil.getStringCellValue(row, 0);
-                        Date time = ExcelUtil.getDateCellValue(row, 1);
-                        String date = DateUtil.dateToString(time, DateUtil.fm_yyyy_MM_dd);
-                        String remark = ExcelUtil.getStringCellValue(row, 2);
+                        String userName = ExcelUtil.getStringCellValue(row, 0);//员工名称
+                        Date time = ExcelUtil.getDateCellValue(row, 1);//日期时间
+                        String date = DateUtil.dateToString(time, DateUtil.fm_yyyy_MM_dd);//日期
+                        String remark = ExcelUtil.getStringCellValue(row, 2);//备注
                         String key = userName + date;
                         boolean am = false;
                         GregorianCalendar ca = new GregorianCalendar();
