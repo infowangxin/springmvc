@@ -12,19 +12,14 @@
 	</properties>
 
 	<appenders>
+		<!-- 定义控制台输出 -->
 		<Console name="Console" target="SYSTEM_OUT" follow="true">
-
-			<!-- <PatternLayout pattern="[${PROJECT_NAME}]%date{yy/MM/dd HH:mm:ss.SSS} %-5p (%F:%L) [%M()] - %m%n" /> -->
-			<!-- [angularjs]16/11/29 11:16:27.613 INFO (ApplicationContext.java:33) [setServletContext()] - # version=20161129111627606 , contextPath= -->
-
-			<PatternLayout pattern="%sn [${PROJECT_NAME}] %d{yy/MM/dd HH:mm:ss,SSS} %r [%-6p] [%t] %c{3} %C{3}.%M(%F:%L) - %m%n" />
-			<!-- 2 2016/11/29 13:16:47,644 14934 [INFO ] [main] common.utils.ApplicationContext common.utils.ApplicationContext.setServletContext(ApplicationContext.java:33) - # version=20161129131647629 , contextPath= -->
-
+			<PatternLayout pattern="%sn [${PROJECT_NAME}] %d{yy/MM/dd HH:mm:ss,SSS} %r [%-6p] [%t] %c{1.}.%M(%F:%L) - %m%n" />
 		</Console>
 
 		<!-- 应用日志 -->
 		<RollingRandomAccessFile name="RollingLog" fileName="${BACKUP_HOME}/Rolling.log" filePattern="${BACKUP_HOME}/Rolling.%d{yyyy-MM-dd-HH}.log">
-			<PatternLayout pattern="%sn [${PROJECT_NAME}] %d{yy/MM/dd HH:mm:ss,SSS} %r [%-6p] [%t] %c{3} %C{3}.%M(%F:%L) - %m%n" />
+			<PatternLayout pattern="%sn [${PROJECT_NAME}] %d{yy/MM/dd HH:mm:ss,SSS} %r [%-6p] [%t] %c{1.}.%M(%F:%L) - %m%n" />
 			<Policies>
 				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
 			</Policies>
@@ -32,7 +27,7 @@
 
 		<!-- 单独业务日志 -->
 		<RollingRandomAccessFile name="BusinessLog" fileName="${BACKUP_HOME}/Business.log" filePattern="${BACKUP_HOME}/Business.%d{yyyy-MM-dd-HH}.log">
-			<PatternLayout pattern="%sn [${PROJECT_NAME}] %d{yy/MM/dd HH:mm:ss,SSS} %r [%-6p] [%t] %c{3} %C{3}.%M(%F:%L) - %m%n" />
+			<PatternLayout pattern="%sn [${PROJECT_NAME}] %d{yy/MM/dd HH:mm:ss,SSS} %r [%-6p] [%t] %c{1.}.%M(%F:%L) - %m%n" />
 			<Policies>
 				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
 			</Policies>
