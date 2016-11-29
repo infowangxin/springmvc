@@ -9,7 +9,7 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<project.build.jdkVersion>1.7</project.build.jdkVersion>
+		<project.build.jdkVersion>1.6</project.build.jdkVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- spring -->
