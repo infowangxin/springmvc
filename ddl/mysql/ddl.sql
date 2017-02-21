@@ -26,7 +26,7 @@ create table `d_open_survey` (
   `f_usersurveycount` int(11) default null,
   `f_viewersum` int(11) default null,
   primary key (`f_id`)
-) engine=innodb default charset=utf8;
+) engine=innodb default charset=utf8mb4;
 
 create table `t_news` (
   `id` varchar(255) not null,
@@ -37,7 +37,7 @@ create table `t_news` (
   `title` varchar(255) default null,
   `user_id` varchar(255) default null,
   primary key (`id`)
-) engine=innodb default charset=utf8;
+) engine=innodb default charset=utf8mb4;
 
 create table `t_sys_permission` (
   `id` varchar(32) not null,
@@ -48,7 +48,7 @@ create table `t_sys_permission` (
   `sort` int(11) default null,
   `url` varchar(255) default null,
   primary key (`id`)
-) engine=innodb default charset=utf8;
+) engine=innodb default charset=utf8mb4;
 
 create table `t_sys_role` (
   `id` varchar(32) not null,
@@ -56,14 +56,14 @@ create table `t_sys_role` (
   `name` varchar(255) default null,
   `remark` varchar(255) default null,
   primary key (`id`)
-) engine=innodb default charset=utf8;
+) engine=innodb default charset=utf8mb4;
 
 create table `t_sys_role_permission` (
   `id` varchar(32) not null,
   `permission_id` varchar(255) default null,
   `role_id` varchar(255) default null,
   primary key (`id`)
-) engine=innodb default charset=utf8;
+) engine=innodb default charset=utf8mb4;
 
 create table `t_sys_user` (
   `id` varchar(32) not null,
@@ -81,14 +81,14 @@ create table `t_sys_user` (
   unique key `uk_jhdc5ipoa6kdxy91r16g3df4i` (`email`),
   unique key `uk_mocatd9fh3tj7mv0815baepmq` (`name`),
   unique key `uk_ar8vsmvija6p1mlnw7vkw7aql` (`true_name`)
-) engine=innodb default charset=utf8;
+) engine=innodb default charset=utf8mb4;
 
 create table `t_sys_user_role` (
   `id` varchar(32) not null,
   `role_id` varchar(255) default null,
   `user_id` varchar(255) default null,
   primary key (`id`)
-) engine=innodb default charset=utf8;
+) engine=innodb default charset=utf8mb4;
 
 create table `t_import_excel` (
   `id` varchar(32) primary key not null comment '主键',
@@ -100,4 +100,4 @@ create table `t_import_excel` (
   `year` varchar(255) default null comment '月',
   `remark` varchar(255) default null comment '备注',
   `is_modify` int(11) default null comment '修改备注：1=补开始日期与开始时间；2=补结束日期与结束时间；3=再次补结束日期与结束时间；'
-) engine=innodb default charset=utf8;
+) engine=innodb default charset=utf8mb4;
