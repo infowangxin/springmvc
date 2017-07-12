@@ -36,6 +36,6 @@
 > 用户组织权限相关表关系很简历，表之间的关联关系，可以看cn.springmvc.mybatis.init.InitServiceTest.[testInit()](src/test/java/cn/springmvc/mybatis/init/InitServiceTest.java)方法执行的步骤，这块就没有单独写页面来操作了
 
 
-[GitHub](https://github.com/wangxinforme) [issues](https://github.com/wangxinforme/sc/issues)
+[GitHub](https://github.com/wangxinforme) [issues](https://github.com/wangxinforme/springmvc/issues)
 
 ![Markdown](http://wx4.sinaimg.cn/mw690/005OXyHfgy1fh6evxykwhj30ag0as3zv.jpg)
