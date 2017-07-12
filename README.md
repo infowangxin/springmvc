@@ -32,8 +32,8 @@
 
 
 #### 用户体系授权？
-<pre>用户组织权限相关表关系很简历，表之间的关联关系，可以看cn.springmvc.mybatis.init.InitServiceTest.testInit()方法执行的步骤，这块就没有单独写页面来操作了</pre>
 
+> 用户组织权限相关表关系很简历，表之间的关联关系，可以看cn.springmvc.mybatis.init.InitServiceTest.[testInit()](src/test/java/cn/springmvc/mybatis/init/InitServiceTest.java)方法执行的步骤，这块就没有单独写页面来操作了
 
 
 [GitHub](https://github.com/wangxinforme) [issues](https://github.com/wangxinforme/sc/issues)
