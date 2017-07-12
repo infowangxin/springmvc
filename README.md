@@ -25,7 +25,7 @@
 	a. 创建数据库demo<br>
 	b. 创建activiti相关表，执行[ddl/activiti/mysql](ddl/activiti/mysql)目录下所有SQL脚本<br>
 	c. 创建用户相关的基础表，执行[ddl/mysl/ddl.sql](ddl/mysl/ddl.sql)脚本<br>
-	d. 导入测试数据，执行[ddl/mysl/d_open_survey init.sql](ddl/mysl/d_open_survey init.sql)脚本<br>
+	d. 导入测试数据，执行[ddl/mysl/init.sql](ddl/mysl/init.sql)脚本<br>
 	e. 初始化一份测试用户数据，运行cn.springmvc.mybatis.init.InitServiceTest.[testInit()](src/test/java/cn/springmvc/mybatis/init/InitServiceTest.java)方法
 	
 2. 启动工程，访问: [http://ip:port/]( )
