@@ -237,7 +237,7 @@
 			<artifactId>shiro-ehcache</artifactId>
 			<version>${apache.shiro.version}</version>
 		</dependency>
-		
+
 		<!-- apache poi -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -306,7 +306,7 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.2.17</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
@@ -464,7 +464,7 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
-			<scope>test</scope>
+			<!-- <scope>test</scope> -->
 		</dependency>
 
 		<dependency>
