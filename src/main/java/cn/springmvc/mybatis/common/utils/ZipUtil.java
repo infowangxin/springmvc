@@ -98,7 +98,11 @@ public class ZipUtil {
                 entry = ((ZipEntry) entries.nextElement());
                 zipEntryName = entry.getName();
                 in = zf.getInputStream(entry);
-                out = new FileOutputStream(descDir + zipEntryName);
+                final File zipEntryFile = new File(descDir, zipEntryName);
+                if (!zipEntryFile.toPath().normalize().startsWith(descDir)) {
+                    throw new IOException("Bad zip entry");
+                }
+                out = new FileOutputStream(zipEntryFile);
                 buf1 = new byte[1024];
                 len = 0;
                 while ((len = in.read(buf1)) > 0) {
